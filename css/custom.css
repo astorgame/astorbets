@@ -1,0 +1,119 @@
+.logo-sm {
+    height: 48px;
+    width: 48px;
+}
+   .icono-1x {
+    font-size: 1.5em;
+  }
+  .icono-2x {
+    font-size: 2em;
+  }
+  .icono-3x {
+    font-size: 3em;
+  }
+  .icono-4x {
+    font-size: 4em;
+  }
+  .icono-5x {
+    font-size: 5em;
+  }
+  .mar-2x {
+    margin-right: .2em;
+  }
+  .mar-3x {
+    margin-right: .3em;
+  }
+  .mar-4x {
+    margin-right: .4em;
+  }
+  .mal-2x {
+    margin-left: .2em;
+  }
+  .mal-3x {
+    margin-left: .3em;
+  }
+  .mal-4x {
+    margin-left: .4em;
+  }
+
+
+  .matches-count {
+    font-size: 12px;
+    margin-left: 4px;
+    background-color: rgb(51, 51, 51);
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.count{
+      font-size: 12px;
+      padding: 2px 5px;
+      margin-left: 4px;
+      border-radius: 5px;
+      background-color: #333;
+      float: right;
+  }
+/* para el panel central */
+  .events {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.panel {
+    /*background: rgba(0, 0, 0, 0.85);*/
+}
+
+.panel > header {
+    color: rgba(0, 0, 0, 0.85);
+    background: rgba(91, 255, 59, 0.85);
+
+    min-height: 45px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 38px;
+    position: relative;
+}
+
+.panel header a.back, .panel header a.reload, .panel header a.program, .panel header a.all {
+    float: right;
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+header h1 {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    margin: 0px;
+}
+
+.sub-header {
+    color: rgb(255, 255, 255);
+    background: rgb(25, 25, 25);
+    padding: 4px 15px;
+}
+.btn-all {background-color: transparent;}
+.btn-all span {color: #929292;}
+.btn-all:hover { background-color: #5BFF3B;}
+.btn-all:hover span {color: #1e1e1e;}
+
+.area {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 5px 10px 5px 46px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background: rgb(22, 22, 22);
+}
+
+.area .area-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    text-transform: uppercase;
+    text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+    margin: 0px;
+}

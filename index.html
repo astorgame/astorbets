@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html ng-app="astorbetsApp" class="no-js" lang="en"  >
+<head>
+	<meta charset="utf-8">
+ 	<title>AstorBets - eSports & Online Gaming platform</title>
+ 	<meta name="Author" content="AstorGame">
+ 	<meta data-property="og:site_name" content="AstorGame">
+ 	<meta data-property="og:type" content="website">
+ 	<meta data-property="og:title" content="AstorGame - eSports & Online Gaming platform">
+ 	<meta data-property="og:url" content="https://astorgame.com">
+ 	<meta data-property="og:image" content="https://astorgame.com/imgann/ironanngoldbet.jpg">
+ 	<meta data-property="og:description" content="eSport & Online Gaming platform – Decentralized games, sports betting and Casino using blockchain, smart contracts + Provably Fair">
+ 	<meta name = "keywords" content = "eSports, blockchain, cryptocurrency, tokens, Ethereum, astorgame, smart contract, bettings, casino, gaming, lottery, bitcoin, tokenmarket, coinmarketcap, btc">
+    
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon/fav.png" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/fav.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/fav.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/fav.png">
+
+	<link rel="stylesheet" href="icons/sportsfont/sports.css" />
+
+	<link rel="stylesheet" href="css/bootstrapGrid.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/mediaqueries.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+
+	<!-- Js componentes -->
+	<script defer src="plugins/fontawesome-all.js"></script>
+
+	<!-- AngularJs componentes -->
+	<script src="bower_components/angular/angular.js"></script>
+
+    <!-- Scripts App AngularJs  -->
+	<script src="core/app.js"></script>
+	<script src="core/config.js"></script>
+	<script src="core/constants.js"></script>
+    <!-- Core  models -->
+	<script src="core/models/games.js"></script>
+	<script src="core/models/areas.js"></script>
+    <!-- Core  controllers -->
+	<script src="core/controllers/home.js"></script>
+</head>
+
+<body ng-controller="homeCtrl"   >
+	
+<!-- HEADER Block -->
+	<header>
+		<div class="container-fluid">
+			<ul class="fl_lt">
+				<li><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
+				<li><a href="javascript:void(0)">Deportivas</a></li>
+				<li><a href="javascript:void(0)">Animales</a></li>
+				<li><a href="javascript:void(0)">Casino</a></li>
+			</ul>
+			
+			<ul class="fl_rt">
+				<li><button><span>Sign Up</span></button></li>
+				<li><button class="btn-lgn"><span>Login</span></button></li>
+			</ul>
+		</div>
+	</header>
+
+<!--CONTENT Block-->
+	<div class="content-wrap" ng-init="getListGames()"  >
+		<div class="sidebar-menu col-lg-2">
+			<ul>
+				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-calendar-alt"></i> Calendario</span></a></li>
+				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i> Estadisticas</span></a></li>
+				<li ng-repeat="item in ls_games"  >
+					<a href="javascript:void(0)" class=""  ng-click="getGame(item)"  >
+						<span> 
+							<i class="icono-2x iconsport {{ item.icono }}"></i>   {{ item.description }} 
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-lg-8">
+		   <div class="panel events metro picked today-program">
+				<header class="clearfix">
+					<i class="icono-2x iconsport {{ record_selected.icono }}"></i> <h1 class="mal-4x" > {{ record_selected.description }}  </h1>
+					<a href="#" class="reload"  title="Reload"><i class="icono-1x fas fa-sync-alt mar-3x"></i>   </a>
+					<a href="#" class="back mar-2x">EVENTOS DEL DIA</a>
+				</header>
+				<div class="sub-header">
+                    <button type="button" class="btn btn-primary btn-sm" > <span>Hoy</span>  </button>
+					<button type="button" class="btn btn-all btn-sm" ><span>Todos</span></button>
+                </div>
+				<div class=""  ng-repeat="evento in ls_events"  >
+						<div class="content-main area">
+							<h2 class="area-titulo text-center"  >{{ evento.description }} </h2>		
+						</div>
+						<div class=""  ng-repeat="comp in evento.competitions"  >
+								<div class="col-lg-12 content-title content-title-country">
+									<div class="col-lg-8 cell "><h2 class="">  {{ comp.description }}   </h2> </div>
+									<div class="col-lg-1 cell "><h4 class="text-center">1</h4></div>
+									<div class="col-lg-2 cell "><h4 class="text-center">DRAW</h4></div>
+									<div class="col-lg-1 cell "><h4 class="text-center">2</h4></div>
+								</div>
+								<div class=""   >	
+									<div class="col-lg-12 content-text">
+										<div class="col-lg-2 cell ">24 March 15:00</div>
+										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
+										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+									</div>
+									<div class="col-lg-12 content-text">
+										<div class="col-lg-2 cell ">24 March 15:00</div>
+										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
+										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+									</div>
+									<div class="col-lg-12 content-text">
+										<div class="col-lg-2 cell ">24 March 15:00</div>
+										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
+										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+									</div>
+									<div class="col-lg-12 content-text">
+										<div class="col-lg-2 cell ">24 March 15:00</div>
+										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
+										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+									</div>
+									<div class="col-lg-12 content-text">
+										<div class="col-lg-2 cell ">24 March 15:00</div>
+										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
+										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
+										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+									</div>
+								</div>	
+					 </div>	
+				</div>	
+			</div>
+		</div>
+		<div class="sidebar-bet col-lg-2">
+			<h2>Bet </h2>	
+		</div>
+	</div>
+	
+<!--[if lt IE 9]>
+	<script src="libs/html5shiv/es5-shim.min.js"></script>
+	<script src="libs/html5shiv/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/respond.min.js"></script>
+	<![endif]-->
+</body>
+</html>
+

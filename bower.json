@@ -1,0 +1,17 @@
+{
+  "name": "astorbets",
+  "version": "1.0.0",
+  "description": "plataforma de apuestas",
+  "license": "MIT",
+  "homepage": "https://astorbets.com",
+  "dependencies": {
+    "angular": "^1.6.9"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
