@@ -1,3 +1,17 @@
+a {
+  color: #fff!important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5BFF3B!important;
+  text-decoration: none;
+}
+
+button:hover span {
+  color: #fff;
+}
+
 .logo-sm {
       height: 48px;
       width: 48px;
@@ -79,7 +93,7 @@ body.md-default-theme, body, html.md-default-theme, html {
 
     min-height: 45px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 38px;
     position: relative;
@@ -93,7 +107,7 @@ body.md-default-theme, body, html.md-default-theme, html {
 
 header h1 {
     float: left;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 50px;
     margin: 0px;
@@ -160,3 +174,119 @@ ul.fl_lt li.logo a {
 .h4, h4 {
   font-size: 1.2rem!important;
 }
+dl, ol, ul {
+  margin-top: 0!important;
+  margin-bottom: .1rem!important;
+}
+
+
+/*--------   L O G I N  ------------
+---------------------------------*/
+.topbcgrd_login {background: url(../img/backgr-log.png) no-repeat; background-size: cover; background-position: center;}
+.topbcgrd_login-wrap { margin: 0 auto; background-color: #1E1E1E; position: relative;}
+
+.topbcgrd_login-wrap .down-arrow {
+  display: inline-block;
+  position: relative;
+  text-align: center;}
+.topbcgrd_login-wrap .down-arrow:after {
+  content: '';
+  display: block;  
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #1B4ABB;
+  border-right: 10px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 10px solid transparent;}
+.topbcgrd_login-wrap .btn-tab {
+  color: #fff !important;
+  border-color: #1B4ABB;
+  background-color: #1B4ABB;
+  width: 333px;
+  height: 50px;}
+.topbcgrd_login-wrap .btn-tab-lt {background-color: transparent}
+.topbcgrd_login-wrap .btn-tab-lt:hover {background-color: #1B4ABB}
+
+.topbcgrd_login-img {
+    min-height: 380px;
+    background: url(../img/center-log.png) no-repeat; 
+    background-size: cover; 
+    background-position: center;
+    margin: 15px 0;
+    margin-bottom: 0; 
+    width: 100%;
+  }
+.topbcgrd_login-content {
+    
+    margin: 0 auto;
+    padding: 60px 0 40px;
+    color: #fff;
+    font-size: 14px;
+    font-family: "ProximaNova-Light", sans-serif;}
+.topbcgrd_login input {
+    margin-top: 5px; 
+    width: 100%;
+    background: transparent;
+    padding: 6px 0 4px 10px;
+    border: none;
+    border-bottom: 2px solid #1B4ABB;}
+.topbcgrd_login input:visited, input:active, input:focus {border: none; outline: none; border-bottom: 2px solid #1B4ABB;} 
+
+.topbcgrd_login-content .marg {margin-top: 1.5rem; font-size: 16px;}
+.topbcgrd_login-wrap button {
+    width: 240px;
+    height: 60px;
+    color: #1E1E1E;
+    margin-top: 1.5rem;  }
+.topbcgrd_login-wrap button span {font-family: "ProximaNova-Bold", Arial, sans-serif; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;}
+
+.radio {position: absolute; z-index: -1; opacity: 0; margin: 10px 0 0 7px;}
+.radio + label {position: relative; padding: 0 0 0 35px; cursor: pointer;}
+.radio + label:before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #656C73;
+  border-radius: 50%;
+  background: transparent;}
+.radio + label:after {
+  content: '';
+  position: absolute;
+  top: 3.5px;
+  left: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5BFF3B;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+  opacity: 0;
+  transition: .2s;}
+.radio:checked + label:after {opacity: 1;}
+.radio:focus + label:before {box-shadow: 0 0 0 3px rgba(91,255,59,.7);}
+
+.topbcgrd_login-wrap .social-enter {
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  font-family: "ProximaNova-Bold", Arial, sans-serif; 
+  text-transform: uppercase;
+  padding-bottom: 25px;}
+.topbcgrd_login-wrap .social-enter h3 {padding-bottom: 20px;}
+.topbcgrd_login-wrap .social-enter a {margin: 0 20px;}
+
+.topbcgrd_login-wrap .svg-inline--fa.fa-w-14{font-size: 46px;}
+
+
+/* Registration*/
+.topbcgrd_login-content-reg { width: 90%}
+
+.btn-tab span {
+   color: #fff!important;
+}
+
+
