@@ -1,20 +1,37 @@
 'use strict';
-app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q , GamesService,AreasService, $filter) {
+app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q ,TypegamesService, GamesService,AreasService, $filter) {
 
     //var opcx = $stateParams.operacion;
+    $scope.ls_typegames={};
     $scope.ls_games={};
     $scope.ls_areas={};
     $scope.ls_events={};
     $scope.areascount = 0;
 
-        $scope.getListGames = function() {
+        $scope.getListTypegames = function(){
+            var querytypegames = {
+                order: 'order_view',
+                fill: 1,
+                optsel: "id,description,logo,icono"
+            };
+            TypegamesService.list(querytypegames).then(function(response){
+                $scope.ls_typegames =response.data.data;
+            },function(response){
+                
+            });   
+        };
+
+        $scope.getListGames = function(typegame_id){
             var querygames = {
+                filterby: 'typegame_id',
+                filterid: typegame_id,
                 order: 'order_view',
                 fill: 1,
                 optsel: "id,description,logo,icono"
             };
             GamesService.list(querygames).then(function(response){
                 $scope.ls_games =response.data.data;
+                $scope.getGame($scope.ls_games[0]);
             },function(response){
                 
             });   
@@ -27,9 +44,9 @@ app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q
                 filterid: item_sel.id,
                 order: 'order_view',
                 fill: 1,
-                optsel: "id,description,icono"
+                optsel: "id,description,logo"
             };
-            GamesService.list(queryareas).then(function(response){
+            AreasService.list(queryareas).then(function(response){
                 $scope.ls_areas =response.data.data;
             },function(response){
                 

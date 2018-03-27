@@ -7,7 +7,7 @@ body {
     font-family: "ProximaNova-Light", Arial, sans-serif;
     font-size: 14px;
     color: #fff;
-    background-color: /*#191C1F*/ #0C2C3F;
+    background-color:  #0C2C3F !important;
     min-width: 320px;
     position: relative;
     line-height: 1.6;
@@ -33,7 +33,7 @@ button:hover span {color: #929292;}
 /*--------   H E A D E R   ------------
 ---------------------------------*/
 header {background-color: #011021; font-family: ProximaNova-Bold, Arial, sans-serif;}
-header ul {padding-top: 1rem; padding-bottom: 1rem;}
+header ul {padding-top: 1rem; }
 header li {display: inline-block; padding-right: 1rem;}
 header li a {font-size: 16px;}
 header li a:hover {color: #5BFF3B}

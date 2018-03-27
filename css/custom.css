@@ -1,7 +1,15 @@
 .logo-sm {
-    height: 48px;
-    width: 48px;
+      height: 48px;
+      width: 48px;
+      /*position: relative;*/
+      top: -3px;
 }
+body.md-default-theme, body, html.md-default-theme, html {
+    color: #fff !important; 
+    background-color:  #0C2C3F !important; 
+    font-size: 0.96rem!important; 
+}
+
    .icono-1x {
     font-size: 1.5em;
   }
@@ -116,4 +124,39 @@ header h1 {
     text-transform: uppercase;
     text-shadow: rgb(0, 0, 0) 1px 1px 0px;
     margin: 0px;
+}
+
+ ul.fl_lt li {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 600;
+  float: left;
+  cursor: pointer;
+}
+
+ul.fl_lt li a:link, ul.fl_lt li a:visited {
+  padding: 0 14px;
+  color: hsla(0,0%,100%,.7);
+  font-weight: 700;
+  font-family: "Open Sans", Arial, sans-serif;
+  text-decoration: none;
+  line-height: 35px;
+  display: block;
+  font-size: 14px;
+  border-left: 1px dotted hsla(0,0%,100%,.7);
+}
+ul.fl_lt li a:hover {
+  color: #5BFF3B;
+}
+.fl_ltmenu_activo {
+  color: #5BFF3B;
+}
+ul.fl_lt li.logo a {
+  border-left: none !important;
+}
+.h2, h2 {
+  font-size: 1.5rem!important;
+}
+.h4, h4 {
+  font-size: 1.2rem!important;
 }
