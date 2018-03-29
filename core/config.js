@@ -8,3 +8,11 @@ app.config(['$authProvider','CONFIG',function($authProvider,CONFIG) {
         $authProvider.storageType = 'localStorage';
    }    
 ]);
+
+app.config(function($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'languages/',
+            suffix: '.json'
+        });
+     $translateProvider.preferredLanguage('es');
+});

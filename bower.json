@@ -11,7 +11,10 @@
     "angular-route": "^1.6.9",
     "bootstrap": "^4.0.0",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "angular-translate-loader-static-files": "^2.17.0",
+    "ngstorage": "^0.3.11",
+    "angular-ui-router": "^1.0.15"
   },
   "ignore": [
     "**/.*",
@@ -19,5 +22,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "angular-translate": "^2.17.0"
+  }
 }

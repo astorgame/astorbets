@@ -27,9 +27,10 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/mediaqueries.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/app-material.css">
 	<link rel="stylesheet" href="css/fontawesome-all.css">
-
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
 
 
 	<!-- Js componentes -->
@@ -40,16 +41,19 @@
 
 	<!-- AngularJs componentes -->
 	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/satellizer/dist/satellizer.min.js"></script>
 	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
 	<script src="bower_components/angular-material/angular-material.js"></script>
-
+	<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+	<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+	<script src="bower_components/ngstorage/ngStorage.min.js"></script>
 
     <!-- Scripts App AngularJs  -->
 	<script src="core/app.js"></script>
+	<script src="core/routes.js"></script>
 	<script src="core/constants.js"></script>
 	<script src="core/config.js"></script>
 	
@@ -57,32 +61,31 @@
 	<script src="core/models/typegames.js"></script>
 	<script src="core/models/games.js"></script>
 	<script src="core/models/areas.js"></script>
-    <!-- Core  controllers -->
+	<!-- Core  controllers -->
+	<script src="core/controllers/base.js"></script>
 	<script src="core/controllers/home.js"></script>
+	<script src="core/controllers/login.js"></script>
+
 </head>
 
-<body ng-controller="homeCtrl">
-	
-<!-- HEADER Block -->
-	<header>
+<body ng-controller="homeCtrl" >
+    <header>
 		<div class="container-fluid"  ng-init="getListTypegames()" >
 			<ul class="fl_lt">
 				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
-				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i> {{ item.description }}  </a></li>
+				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
 			</ul>
-			<ul class="fl_rt" ng-if="!rootScope.isAuthenticated()"  >
-				<li><button><span>Sign Up</span></button></li>
-				<li><button class="btn-lgn"><span>Login</span></button></li>
+			<ul class="fl_rt" ng-if="!isAuthenticated()"  >
+				<li><button class="btn-lgn" ng-click="showLogin($event)"  ><span>  {{ 'login' | translate }} </span></button></li>
+				<li><button ng-click="showSignup($event)" ><span>{{ 'singup' | translate }} </span></button></li>
 			</ul>
-			<ul class="fl_rt" ng-if="rootScope.isAuthenticated()"  >
-				<li><button><span>Wallet</span></button></li>
-				<li><button class="btn-lgn"><span>Salir</span></button></li>
+			<ul class="fl_rt" ng-if="isAuthenticated()"  >
+				<li><button><span>{{ 'wallet' | translate }} </span></button></li>
+				<li><button class="btn-lgn"  ng-click="cerrarSesion()" ><span>{{ 'logout' | translate }}</span></button></li>
 			</ul>
-
 		</div>
 	</header>
 
-<!--CONTENT Block-->
 	<div class="content-wrap" ng-init="getListGames(1)"  >
 		<div class="sidebar-menu col-lg-2">
 			<ul>
@@ -90,80 +93,24 @@
 				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i> Estadisticas</span></a></li>
 				<li ng-repeat="item in ls_games"  >
 					<a href="javascript:void(0)" class=""  ng-click="getGame(item)"  >
-						<span> 
-							<i class="icono-2x iconsport {{ item.icono }}"></i>   {{ item.description }} 
+						<span > 
+							<i class="icono-2x iconsport {{ item.icono }}"></i> {{ item.description }} 
 						</span>
 					</a>
 				</li>
 			</ul>
 		</div>
-		<div class="col-lg-8">
-		   <div class="panel events metro picked today-program"  >
-				<header class="clearfix">
-					<i class="icono-2x iconsport {{ record_selected.icono }}"></i> <h1 class="mal-4x"  ng-bind="record_selected.description" ></h1>
-					<a href="#" class="reload"  title="Reload"><i class="icono-1x fas fa-sync-alt mar-3x"></i>   </a>
-					<a href="#" class="back mar-2x">EVENTOS DEL DIA</a>
-				</header>
-				<div class="sub-header">
-                    <button type="button" class="btn btn-primary btn-sm" > <span>Hoy</span>  </button>
-					<button type="button" class="btn btn-all btn-sm" ><span>Todos</span></button>
-                </div>
-				<div class=""  ng-repeat="evento in ls_events"  >
-						<div class="content-main area">
-							<h2 class="area-titulo text-center"  >{{ evento.description }} </h2>		
-						</div>
-						<div class=""  ng-repeat="comp in evento.competitions"  >
-								<div class="col-lg-12 content-title content-title-country">
-									<div class="col-lg-8 cell "><h2 class="">  {{ comp.description }}   </h2> </div>
-									<div class="col-lg-1 cell "><h4 class="text-center">1</h4></div>
-									<div class="col-lg-2 cell "><h4 class="text-center">DRAW</h4></div>
-									<div class="col-lg-1 cell "><h4 class="text-center">2</h4></div>
-								</div>
-								<div class=""   >	
-									<div class="col-lg-12 content-text">
-										<div class="col-lg-2 cell ">24 March 15:00</div>
-										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-									</div>
-									<div class="col-lg-12 content-text">
-										<div class="col-lg-2 cell ">24 March 15:00</div>
-										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-									</div>
-									<div class="col-lg-12 content-text">
-										<div class="col-lg-2 cell ">24 March 15:00</div>
-										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-									</div>
-									<div class="col-lg-12 content-text">
-										<div class="col-lg-2 cell ">24 March 15:00</div>
-										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-									</div>
-									<div class="col-lg-12 content-text">
-										<div class="col-lg-2 cell ">24 March 15:00</div>
-										<a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-										<a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-										<a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-									</div>
-								</div>	
-					 </div>	
-				</div>	
-			</div>
+		<div class="col-lg-8"  >
+			<div  class="panel events metro picked today-program"  ng-include="actual_view" >  
+					
+						
+			</div>	
 		</div>
-		<div class="sidebar-bet col-lg-2">
-			<h2>Bet </h2>	
+		<div class="sidebar-bet col-lg-2"  >
+				<h2>Bet </h2>	
 		</div>
-	</div>
+    </div>
+
 </body>
 </html>
 

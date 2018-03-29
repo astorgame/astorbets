@@ -1,12 +1,14 @@
 'use strict';
-app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q ,TypegamesService, GamesService,AreasService, $filter) {
+app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,$timeout, $q,$mdDialog,TypegamesService, GamesService,AreasService) {
 
-    //var opcx = $stateParams.operacion;
+    var opcx = $stateParams.game;
+
     $scope.ls_typegames={};
     $scope.ls_games={};
     $scope.ls_areas={};
     $scope.ls_events={};
     $scope.areascount = 0;
+    $scope.actual_view="";
 
         $scope.getListTypegames = function(){
             var querytypegames = {
@@ -38,6 +40,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q
         };
         
         $scope.getGame  = function(item_sel) {
+            $scope.actual_view="views/events.html";
             $scope.record_selected = item_sel;
             var queryareas = {
                 filterby: 'game_id',
@@ -66,5 +69,18 @@ app.controller('homeCtrl', function($scope, $rootScope, $location,  $timeout, $q
             },function(response){
                  
             }); 
+        }; 
+        
+        
+        $scope.showLogin = function(ev) {
+            $scope.actual_view="views/login.html";
         };   
+        $scope.showSignup = function(ev) {
+            $scope.actual_view="views/register.html";
+        };   
+
+
+
+        
+
 });
