@@ -1,0 +1,40 @@
+md-input-container label:not(.md-no-float):not(.md-container-ignore), md-input-container .md-placeholder {
+    color: #fff;
+    font-size: 1.2em;
+}
+md-input-container .md-input {
+  color: #fff;
+}
+md-button {
+  background-color: #5BFF3B;
+  border: 1px solid #5BFF3B;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised {
+   color: #000;
+  /*background-color: rgb(63,81,181);*/
+   background-color: rgba(87, 250, 58, 0.87);
+}
+.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover {
+   background-color: transparent;
+}
+
+
+.md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+    color: rgba(16,108,200,0.87);
+    border-color: #fff;
+}
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+   background-color: rgba(0,156,251,0.87);
+}
+.md-button.md-icon-button {
+    margin-top: 6px !important;
+    margin-right: 6px !important;
+    margin-bottom: 0px !important;
+    margin-left: 6px !important;
+}
+  md-toolbar.md-default-theme.md-hue-3:not(.md-menu-toolbar), md-toolbar.md-hue-3:not(.md-menu-toolbar) {
+    background-color: rgb(245, 244, 238);
+    color: rgba(0,0,0,0.87);
+}

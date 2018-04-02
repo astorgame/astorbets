@@ -22,7 +22,7 @@ ul {list-style: none; padding: 0; margin: 0;}
 .fl_rt {float: right;}
 
 button {
-  width: 135px;
+  /*width: 135px;*/
   background-color: #5BFF3B;
   border: 1px solid #5BFF3B;}
 button span {color: #1e1e1e; text-transform: uppercase; font-size: 12px; letter-spacing: 0.2em; font-family: "ProximaNova-Bold", sans-serif;}
@@ -62,11 +62,15 @@ header .btn-lgn:hover span {color: #1e1e1e;}
     background: rgba(1, 16, 33, .5);
     border-radius: 3px;
     transition: all .3s;}
+
+
 .content-wrap .sidebar-menu a, .sidebar-menu a:link, .sidebar-menu a:visited {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
     outline: none;}
+
+
 .content-wrap .sidebar-menu li span {
     display: inline-block;
     height: 35px;
@@ -74,8 +78,20 @@ header .btn-lgn:hover span {color: #1e1e1e;}
     padding-left: 8px;
     vertical-align: middle;
     width: 100%;}
+
+.content-wrap .sidebar-menu li span h2{
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        padding-left: 8px;
+        vertical-align: middle;
+        font-family: ProximaNova-Bold;   
+ }
+
 .content-wrap .sidebar-menu li:hover {background-color: #5BFF3B}
 .content-wrap .sidebar-menu li:hover span {color: #1e1e1e; font-family: ProximaNova-Bold;}
+.content-wrap .sidebar-menu li:hover span h2 {color: #1e1e1e; font-family: ProximaNova-Bold;}
+
 
 .content-wrap .sidebar-menu .icon_size {height: 2.5em; margin-right: 10px}
 
@@ -98,7 +114,6 @@ header .btn-lgn:hover span {color: #1e1e1e;}
 .content-title-country {background-color: #011021;}
 .content-title-country h2 {margin: 5px}
 
-.content-text .cell {...}
 .content-text .cell h4 {font-family: ProximaNova-Bold; margin: 0; }
 .content-text .cell:hover {background-color: #5BFF3B; color: #1e1e1e; font-family: ProximaNova-Bold; }
 
