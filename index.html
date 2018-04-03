@@ -21,7 +21,8 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/fav.png">
 
 	<link rel="stylesheet" href="icons/sportsfont/sports.css" />
-
+	<link rel="stylesheet" href="icons/flat-flags/css/flat-flags.min.css" />
+	
 	<link rel="stylesheet" href="css/bootstrapGrid.css">
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -31,7 +32,7 @@
 	<link rel="stylesheet" href="css/fontawesome-all.css">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-
+	<link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css" />
 
 	<!-- Js componentes -->
 	<script defer src="plugins/fontawesome-all.js"></script>
@@ -50,6 +51,7 @@
 	<script src="bower_components/angular-translate/angular-translate.min.js"></script>
 	<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 	<script src="bower_components/ngstorage/ngStorage.min.js"></script>
+	<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 
     <!-- Scripts App AngularJs  -->
 	<script src="core/app.js"></script>
@@ -61,11 +63,13 @@
 	<script src="core/models/typegames.js"></script>
 	<script src="core/models/games.js"></script>
 	<script src="core/models/areas.js"></script>
+	<script src="core/models/wallets.js"></script>
+	<script src="core/models/typecoins.js"></script>
 	<!-- Core  controllers -->
 	<script src="core/controllers/base.js"></script>
 	<script src="core/controllers/home.js"></script>
 	<script src="core/controllers/login.js"></script>
-
+	<script src="core/controllers/wallets.js"></script>
 </head>
 
 <body ng-controller="homeCtrl" >
@@ -74,13 +78,36 @@
 			<ul class="fl_lt">
 				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
 				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
+				<li  >
+					<md-menu md-position-mode="target-right bottom" >
+						<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)">
+							<span class="fas fa-flag "> </span>
+						</md-button>
+						<md-menu-content width="3">
+							<md-menu-item>
+								<md-button ng-click="changeLanguage('en')">
+									<i class="flag-sm flag-sm-GB"></i>
+									<span>English</span>
+								</md-button>
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+								<md-button  ng-click="changeLanguage('es')">
+									<i class="flag-sm flag-sm-ES"></i>
+									<span>Español </span>
+								</md-button>
+							</md-menu-item>
+						</md-menu-content>
+					</md-menu>
+				</li>
 			</ul>
+			
 			<ul class="fl_rt" ng-if="!isAuthenticated()"  >
-				<li><button class="btn-lgn" ng-click="showLogin($event)"  ><span>  {{ 'login' | translate }} </span></button></li>
-				<li><button ng-click="showSignup($event)" ><span>{{ 'singup' | translate }} </span></button></li>
+				<li><button class="btn-lgn" ng-click="showLogin()"  ><span>  {{ 'login' | translate }} </span></button></li>
+				<li><button ng-click="showSignup()" ><span>{{ 'singup' | translate }} </span></button></li>
 			</ul>
 			<ul class="fl_rt" ng-if="isAuthenticated()"  >
-				<li><button><span>{{ 'wallet' | translate }} </span></button></li>
+				<li><button ng-click="showWallet()"    ><span>{{ 'mnu_balance' | translate }} </span></button></li>
 				<li><button class="btn-lgn"  ng-click="cerrarSesion()" ><span>{{ 'logout' | translate }}</span></button></li>
 			</ul>
 		</div>
@@ -101,9 +128,8 @@
 			</ul>
 		</div>
 		<div class="col-lg-8"  >
-			<div  class="panel events metro picked today-program"  ng-include="actual_view" >  
-					
-						
+			<div  class="panel events metro picked today-program"  ng-include="$root.actual_view" >  
+	
 			</div>	
 		</div>
 		<div class="sidebar-bet col-lg-2"  >

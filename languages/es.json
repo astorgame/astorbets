@@ -32,10 +32,21 @@
        "new" : "Nuevo",
        "yes" : "Si",
        "no" : "No",
+       "ok" : "Aceptar",
        "field_email" : "Email",
        "field_user" : "Usuario",
        "field_pass" : "Contraseña",
        "field_name" : "Nombre",
        "field_orloginwith" : "O ingresa con",
-       "wallet" : "Billetera"
+       "wallet" : "Billetera",
+       "active" : "Activa",
+       "mnu_titwallets" : "Billeteras",
+       "mnu_balance" : "Balance",
+       "new_wallet" : "Generar nueva billetera",
+       "field_typecoin" : "Moneda",
+       "field_addtypecoin" : "Agregar Moneda",
+       "field_address" : "Direccion",
+       "field_total" : "Total",
+       "field_available" : "Disponible"
+      
   }

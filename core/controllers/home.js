@@ -8,7 +8,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
     $scope.ls_areas={};
     $scope.ls_events={};
     $scope.areascount = 0;
-    $scope.actual_view="";
+    
 
         $scope.getListTypegames = function(){
             var querytypegames = {
@@ -40,7 +40,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
         };
         
         $scope.getGame  = function(item_sel) {
-            $scope.actual_view="views/events.html";
+            $rootScope.actual_view="views/events.html";
             $scope.record_selected = item_sel;
             var queryareas = {
                 filterby: 'game_id',
@@ -71,16 +71,4 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             }); 
         }; 
         
-        
-        $scope.showLogin = function(ev) {
-            $scope.actual_view="views/login.html";
-        };   
-        $scope.showSignup = function(ev) {
-            $scope.actual_view="views/register.html";
-        };   
-
-
-
-        
-
 });

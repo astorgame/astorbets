@@ -1,5 +1,5 @@
 'use strict';
-app.controller('LoginCtrl', function($scope, $location, $q , $auth, $localStorage) {
+app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $localStorage) {
 
     $scope.user = null;
     $scope.pass = null;
@@ -21,7 +21,8 @@ app.controller('LoginCtrl', function($scope, $location, $q , $auth, $localStorag
                 if (d.status==200){
                     $auth.setToken(d.data.data.token);
                     $localStorage.user =  d.data.data.user;
-                    $location.path('/');    
+                    //$location.path('/');  
+                    $rootScope.showWallet(); 
                 }
             }).catch(function(err) {
                 $scope.loginFailed=true;
