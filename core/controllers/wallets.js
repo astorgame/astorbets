@@ -5,7 +5,6 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     $scope.showOptions = false;
     $scope.recordscount = 0;
     $scope.deserr = "";
-    $scope.dessucces = "";
     $scope.showerror=false;
     $scope.ls_typecoins={};
     
@@ -54,23 +53,24 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
         });
     };
 
-    $scope.getItem = function() {
-        var id_ = $stateParams.id;
+    $scope.getItem = function(id_) {
+        $scope.showerror=false;
         $scope.operacion = $stateParams.operacion;
         if($scope.operacion == "new")
             $scope.new = true;
         else
             $scope.new = false;
 
-            WalletsService.get(id_).then(function(response){
-                $scope.record = response.data.data;
-            }).catch(function(err){
-                $scope.showerror=true;
+        WalletsService.get(id_).then(function(response){
+            $scope.record = response.data.data;
+        }).catch(function(err){
+            $scope.showerror=true;
             $scope.deserr = err.data.message;
-            });
+        });
     };
 
     $scope.add = function(typeid){
+        $scope.showerror=false;
         var datasend = {
             active: true,
             typecoin_id: typeid
@@ -93,6 +93,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.update = function() {
+        $scope.showerror=false;
         WalletsService.update($scope.record).then(function(response){
             var d = response.data;
             if( d.sucess){

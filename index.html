@@ -63,12 +63,13 @@
 	<script src="core/models/typegames.js"></script>
 	<script src="core/models/games.js"></script>
 	<script src="core/models/areas.js"></script>
+	<script src="core/models/users.js"></script>
 	<script src="core/models/wallets.js"></script>
 	<script src="core/models/typecoins.js"></script>
 	<!-- Core  controllers -->
-	<script src="core/controllers/base.js"></script>
 	<script src="core/controllers/home.js"></script>
 	<script src="core/controllers/login.js"></script>
+	<script src="core/controllers/users.js"></script>
 	<script src="core/controllers/wallets.js"></script>
 </head>
 
@@ -78,8 +79,8 @@
 			<ul class="fl_lt">
 				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
 				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
-				<li  >
-					<md-menu md-position-mode="target-right bottom" >
+				<li>
+				  <md-menu md-position-mode="target-right bottom" >
 						<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)">
 							<span class="fas fa-flag "> </span>
 						</md-button>
@@ -98,8 +99,8 @@
 								</md-button>
 							</md-menu-item>
 						</md-menu-content>
-					</md-menu>
-				</li>
+				  </md-menu>
+			   </li>
 			</ul>
 			
 			<ul class="fl_rt" ng-if="!isAuthenticated()"  >

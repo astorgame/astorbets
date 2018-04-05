@@ -18,11 +18,35 @@ button:hover span {
       /*position: relative;*/
       top: -3px;
 }
+.text-error{
+  color: rgb(231, 22, 22)!important;
+}
+.text-success{
+  color: #fff!important;
+}
+.text-primary {
+   color: #fff!important;
+}
+.text-primary:hover {
+  color: rgba(91, 255, 59, 0.85) !important;
+}
+
+.text-secundary {
+   color: rgba(91, 255, 59, 0.85) !important;
+}
+.text-secundary:hover{
+  color: #fff!important;
+}
 body.md-default-theme, body, html.md-default-theme, html {
     color: #fff !important; 
     background-color:  #0C2C3F !important; 
     font-size: 0.96rem!important; 
 }
+  .icono-sm{
+      height: 32px;
+      width: 32px;
+  }
+
 
    .icono-1x {
     font-size: 1.5em;
@@ -179,6 +203,120 @@ dl, ol, ul {
   margin-bottom: .1rem!important;
 }
 
+.table-options{
+  padding: 0px 20px;
+  text-align: right;
+  position: relative;
+}
+.table-options button{
+  background: transparent;
+  border: 0px;
+  transition: .2s;
+  position: relative;
+}
+.table-options button:hover{
+  background: transparent;
+}
+.table-options button i{
+  font-size: 20px;
+}
+table.md-table th.md-column,
+table.md-table td.md-cell{
+  font-size: 14px;
+}
+table.md-table td.md-cell.actions a{
+  font-size: 30px;
+}
+
+table td > figure {
+  border-radius: 100%;
+  height: 68px;
+  display: table-cell;
+  overflow: hidden;
+}
+table td > figure > img{
+  height: 100%;
+  max-width: 68px;
+}
+table td > figure ~ span{
+  display: table-cell;
+  padding-left: 30px;
+}
+.paddingY{
+  padding-top: 10px!important;
+  padding-bottom: 10px!important;
+}
+
+
+.profilePicture{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.profilePicture figure{
+  overflow: hidden;
+  border-radius: 100%;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #000;
+}
+.profilePicture figure img{
+  height: 100%;
+  width: 100%;
+}
+
+.fieldpicture{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.fieldpicture figure{
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #000;
+}
+.fieldpicture figure img{
+  height: 100%;
+  width: 100%;
+}
+i.link{
+  position: absolute;
+  font-size: 26px;
+  line-height: 20px;
+  right: 0px;
+  color: #6d6d6d;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px #dedede;
+  padding: 10px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.selectize-input{
+  box-shadow: none;
+  border: 1px solid #e0e0e0;
+  border-radius: inherit;
+  padding-left: 4px!important;
+  margin-top: 10px;
+}
+
+
+
+
+
+#inputFile{
+  opacity: 0;
+}
+.settings md-input-container > md-icon{
+  font-size: 34px;
+}
+
 
 /*--------   L O G I N  ------------
 ---------------------------------*/
@@ -288,5 +426,6 @@ dl, ol, ul {
 .btn-tab span {
    color: #fff!important;
 }
+
 
 

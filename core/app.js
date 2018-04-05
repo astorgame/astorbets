@@ -56,7 +56,11 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
         };   
         $rootScope.showWallet = function() {
             $rootScope.actual_view="views/priv/wallets/list.html";
+        }; 
+        $rootScope.showProfile = function() {
+            $rootScope.actual_view="views/priv/users/profile.html";
         };  
+        
 
 
     }
