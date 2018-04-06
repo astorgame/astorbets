@@ -21,6 +21,7 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $l
                 if (d.status==200){
                     $auth.setToken(d.data.data.token);
                     $localStorage.user =  d.data.data.user;
+                    $rootScope.getUserinfo();
                     //$location.path('/');  
                     $rootScope.showWallet(); 
                 }

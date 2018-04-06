@@ -1,6 +1,6 @@
 'use strict';
 app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,$timeout, $q,$mdDialog,TypegamesService, GamesService,AreasService) {
-
+    $rootScope.getUserinfo();
     var opcx = $stateParams.game;
 
     $scope.ls_typegames={};

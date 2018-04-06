@@ -8,7 +8,7 @@
         <button type="button" class="btn btn-all btn-sm" ><span>Todos</span></button>
     </div>
     <div class=""  ng-repeat="evento in ls_events"  >
-            <div class="content-main area">
+            <div ng-show="evento.competitions.length>0 " class="content-main area">
                 <h2 class="area-titulo text-center" ng-bind="evento.description" > </h2>		
             </div>
             <div class=""  ng-repeat="comp in evento.competitions"  >

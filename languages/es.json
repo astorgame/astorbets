@@ -51,6 +51,8 @@
        "field_addtypecoin" : "Agregar Moneda",
        "field_address" : "Direccion",
        "field_total" : "Total",
-       "field_available" : "Disponible"
+       "field_available" : "Disponible",
+       "field_depositar" : "Depositar",
+       "field_sacar" : "Sacar"
       
   }

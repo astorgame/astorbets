@@ -49,7 +49,8 @@
   "field_typecoin" : "Currency",
   "field_addtypecoin" : "Add Currency",
   "field_address" : "Direccion",
-  "field_total" : "Total",
-  "field_available" : "Disponible"
-
+  "field_total" : "Amount",
+  "field_available" : "Available",
+  "field_depositar" : "Deposit",
+  "field_sacar" : "Cashout"
   }

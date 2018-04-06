@@ -58,6 +58,7 @@
 	<script src="core/routes.js"></script>
 	<script src="core/constants.js"></script>
 	<script src="core/config.js"></script>
+	<script src="core/directives.js"></script>
 	
 	<!-- Core  models -->
 	<script src="core/models/typegames.js"></script>
@@ -108,8 +109,49 @@
 				<li><button ng-click="showSignup()" ><span>{{ 'singup' | translate }} </span></button></li>
 			</ul>
 			<ul class="fl_rt" ng-if="isAuthenticated()"  >
+
+
 				<li><button ng-click="showWallet()"    ><span>{{ 'mnu_balance' | translate }} </span></button></li>
+				<li>
+				<md-menu md-position-mode="target-right bottom" >
+					<div  class="circular"  ng-click="openMenu($mdMenu, $event)" >
+						<img  img-preload ng-src="{{ $root.userinfo.image }}" class="topnav-img" id="circsm1" >
+					</div>
+					<md-menu-content width="5"  class="md-menu-content-cerop">
+							<md-subheader class="md-no-sticky account-header">
+								<div class="row">
+									<div class="col-md-3">
+										<div  class="circular2"  >
+											<img  img-preload ng-src="{{ $root.userinfo.image }}"  id="circsm2" >
+										</div>
+									</div>
+									<div class="col-sm-9">
+										<div class="text-right">
+											<h4 class="font-size-14 font-white">{{ $root.userinfo.name }}    </h4>
+											<h4 class="font-size-13 font-white">{{ $root.userinfo.email }}   </h4>
+											<md-button class="md-raised"  ui-sref="profile" >{{ 'profilee' | translate }} </md-button>
+										</div>
+									</div>
+								</div>
+		
+							</md-subheader>
+							<md-menu-item>
+								<md-button ui-sref="profile" >
+									<i class="icon wb-settings" aria-hidden="true"></i>  {{ 'ajustesen' | translate }}
+								</md-button>
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+								<md-button  ng-click="cerrarSesion()" >
+									<i class="icon wb-power" aria-hidden="true"></i> {{ 'logout' | translate }}
+								</md-button>
+							</md-menu-item>
+					 </md-menu-content>
+				   </md-menu>
+				</li>	
 				<li><button class="btn-lgn"  ng-click="cerrarSesion()" ><span>{{ 'logout' | translate }}</span></button></li>
+
+
 			</ul>
 		</div>
 	</header>

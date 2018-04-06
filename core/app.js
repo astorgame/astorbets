@@ -14,13 +14,20 @@ var appModels = angular.module('astorbetsApp.models', []);
 app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$translate','$mdDialog' ,'$filter',
     function ($rootScope,$timeout,$location,$auth,$localStorage,$translate, $mdDialog,$filter ) {
         $rootScope.actual_view="";
+        $rootScope.userinfo=null;
+        
 
         $rootScope.isAuthenticated = function() {
             return $auth.isAuthenticated();
         };
+        $rootScope.getUserinfo= function() {
+             $rootScope.userinfo= $localStorage.user;
+        };
+        
+
         $rootScope.cerrarSesion = function() {
             $auth.logout().then(function() {
-                $location.path('/');
+                $rootScope.userinfo=null;
                 delete $localStorage.user;
             });
         };
@@ -55,9 +62,11 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
             $rootScope.actual_view="views/register.html";
         };   
         $rootScope.showWallet = function() {
+            $rootScope.getUserinfo();
             $rootScope.actual_view="views/priv/wallets/list.html";
         }; 
         $rootScope.showProfile = function() {
+            $rootScope.getUserinfo();
             $rootScope.actual_view="views/priv/users/profile.html";
         };  
         

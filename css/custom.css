@@ -318,6 +318,66 @@ i.link{
 }
 
 
+
+.circular img {
+  border: 2px solid #526069;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.circular2 img {
+border: 1px solid #526069;
+margin: 0;
+padding: 0;
+border-radius: 50%;
+overflow: hidden;
+width: 96px;
+height: 96px;
+margin-right: 5px;
+margin-top: 5px;
+margin-bottom: 10px;
+margin-left: 5px;
+}
+
+.circular img:hover {
+border: 2px solid #0078FF;
+}
+.spinner-hide .loading{
+visibility: visible;
+}
+.spinner-show .loading{
+visibility: hidden;
+}
+.spinner-img {
+width: 40px;
+height: 40px;
+margin-right: 5px;
+}
+.md-menu-content-cerop{
+padding-top: 0px!important;
+}
+
+.account-header {
+color: #0078FF;
+background-color: rgba(255,97,0,0.87);
+}
+
+.account-header-text {
+  margin-right: 1px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+
+
 /*--------   L O G I N  ------------
 ---------------------------------*/
 .topbcgrd_login {background: url(../img/backgr-log.png) no-repeat; background-size: cover; background-position: center;}

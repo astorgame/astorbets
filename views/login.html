@@ -1,21 +1,17 @@
 <section class="topbcgrd_login" ng-controller="LoginCtrl"  >
-
 	<div class="container">
         <div class="row topbcgrd_login-wrap"   > 
-              <div class="tabs col-lg-12 text-center">
-                    <div class="down-arrow" style="display: inline-block;">
-                        <button class="btn-tab"><span> {{ 'login' | translate }}  </span></button>
-                    </div>
-                    <button class="btn-tab btn-tab-lt"  ng-click="showSignup()" ><span>{{ 'singup' | translate }}</span></button>
-              </div>
-
+           <div class="tabs col-lg-12 text-center">
+                <div class="down-arrow" style="display: inline-block;">
+                    <button class="btn-tab"><span> {{ 'login' | translate }}  </span></button>
+                </div>
+                <button class="btn-tab btn-tab-lt"  ng-click="showSignup()" ><span>{{ 'singup' | translate }}</span></button>
+          </div>
           <div class="topbcgrd_login-img"   >
               <div class="row topbcgrd_login-content">
                    <div class="col-lg-3"> </div>
-
                   <div class="col-lg-6"> 
                    <form name="loginForm" role="form" class="form-horizontal"  ng-submit="login()" >
-                    
                         <md-input-container class="md-block">
                             <label>{{ 'field_user' | translate }}</label>
                             <input required type="email" name="user" ng-model="user" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
@@ -30,7 +26,7 @@
                         </md-input-container>
                         <md-input-container class="md-block">
                             <label>{{ 'field_pass' | translate }}</label>
-                            <input required type="password" name='pass' ng-model="pass" maxlength="50"  />
+                            <input required type="password" name='pass' ng-model="pass" maxlength="60"  />
                             <div ng-messages="loginForm.pass.$error" role="alert">
                                 <div ng-message-exp="['required', 'maxlength']">
                                     {{ 'login_err_pass_1' | translate }}
@@ -46,24 +42,19 @@
                             </md-checkbox>
                             <a class="pull-xs-right" href="javascript:void(0)">{{ 'olvidopss1' | translate }} </a>
                         </md-input-container>
-
                         <div layout="row" layout-align="center center">
                             <button type="submit" ><span>{{ 'login' | translate }}</span></button>	
                         </div>   
                   </form>
                 </div>  
                 <div class="col-lg-3"> </div>
-                
-              </div>   
-
-                <div class="col-lg-12 text-center social-enter">
-					<h3> {{ 'field_orloginwith' | translate }}   </h3>
-					<a href="javascript:void(0)"><i class="fab fa-facebook-square"></i></a>
-					<a href="javascript:void(0)"><i class="fab fa-twitter-square"></i></a>
-				</div>
-
-            </div>       
-        </div>
+             </div>   
+             <div class="col-lg-12 text-center social-enter">
+				 <h3> {{ 'field_orloginwith' | translate }}   </h3>
+				 <a href="javascript:void(0)"><i class="fab fa-facebook-square"></i></a>
+				 <a href="javascript:void(0)"><i class="fab fa-twitter-square"></i></a>
+			 </div>
+          </div>       
+       </div>
     </div>
-
 </section>   
