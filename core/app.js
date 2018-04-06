@@ -7,7 +7,8 @@ var app =angular.module('astorbetsApp', ['astorbetsApp.models',
         'ngMessages',
         'pascalprecht.translate',
         'ngStorage',
-        'md.data.table'
+        'md.data.table',
+        'angularMoment'
 ]);
 var appModels = angular.module('astorbetsApp.models', []);
 

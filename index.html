@@ -37,9 +37,9 @@
 	<!-- Js componentes -->
 	<script defer src="plugins/fontawesome-all.js"></script>
 	<script defer src="bower_components/jquery/dist/jquery.slim.min.js"></script>
-	<script defer src="bower_components/popper.js/dist/popper.min.js"></script>
 	<script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	
 	<!-- AngularJs componentes -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -52,6 +52,7 @@
 	<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 	<script src="bower_components/ngstorage/ngStorage.min.js"></script>
 	<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+	<script src="bower_components/angular-moment/angular-moment.min.js"></script>
 
     <!-- Scripts App AngularJs  -->
 	<script src="core/app.js"></script>
@@ -159,8 +160,8 @@
 	<div class="content-wrap" ng-init="getListGames(1)"  >
 		<div class="sidebar-menu col-lg-2">
 			<ul>
-				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-calendar-alt"></i> Calendario</span></a></li>
-				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i> Estadisticas</span></a></li>
+				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-calendar-alt"></i>{{ 'mnu_calendario' | translate }}</span></a></li>
+				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i> {{ 'mnu_estadisticas' | translate }}</span></a></li>
 				<li ng-repeat="item in ls_games"  >
 					<a href="javascript:void(0)" class=""  ng-click="getGame(item)"  >
 						<span > 
@@ -176,7 +177,7 @@
 			</div>	
 		</div>
 		<div class="sidebar-bet col-lg-2"  >
-				<h2>Bet </h2>	
+				<h2>{{ 'mnu_bets' | translate }}</h2>	
 		</div>
     </div>
 

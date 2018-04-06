@@ -53,6 +53,8 @@
        "field_total" : "Total",
        "field_available" : "Disponible",
        "field_depositar" : "Depositar",
-       "field_sacar" : "Sacar"
-      
+       "field_sacar" : "Sacar",
+       "mnu_calendario" : "Calendario",
+       "mnu_estadisticas" : "Estadisticas",
+       "mnu_bets" : "Apuestas"
   }

@@ -15,44 +15,19 @@
                     <div class="col-lg-12 content-title content-title-country">
                         <div class="col-lg-8 cell "><h2 class="" ng-bind="comp.description"  ></h2> </div>
                         <div class="col-lg-1 cell "><h4 class="text-center">1</h4></div>
-                        <div class="col-lg-2 cell "><h4 class="text-center">DRAW</h4></div>
+                        <div class="col-lg-2 cell "><h4 class="text-center">X</h4></div>
                         <div class="col-lg-1 cell "><h4 class="text-center">2</h4></div>
                     </div>
-                    <div class=""   >	
-                        <div class="col-lg-12 content-text">
-                            <div class="col-lg-2 cell ">24 March 15:00</div>
-                            <a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+                    <div class=""  ng-repeat="jorn in comp.journeys" >	
+                        <div class="col-lg-12 content-title-jornada cell">
+                            <h2 class="" ng-bind="jorn.description" ></h2>
                         </div>
-                        <div class="col-lg-12 content-text">
-                            <div class="col-lg-2 cell ">24 March 15:00</div>
-                            <a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-                        </div>
-                        <div class="col-lg-12 content-text">
-                            <div class="col-lg-2 cell ">24 March 15:00</div>
-                            <a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-                        </div>
-                        <div class="col-lg-12 content-text">
-                            <div class="col-lg-2 cell ">24 March 15:00</div>
-                            <a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
-                        </div>
-                        <div class="col-lg-12 content-text">
-                            <div class="col-lg-2 cell ">24 March 15:00</div>
-                            <a href="#"><div class="col-lg-6 cell ">CD Lugo vs Real Valladolid</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.68</div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center">3.56</div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center">1.86</div></a>
+                        <div class="col-lg-12 content-text"  ng-repeat="mat in jorn.matches"  >
+                            <div class="col-lg-2 cell " >  {{mat.start | amUtc | amDateFormat:'DD MMMM HH:mm'}}   </div>
+                            <a href="#"><div class="col-lg-6 cell "> {{ mat.matchdetails[0].team.description }}  vs {{ mat.matchdetails[1].team.description }}  </div></a>
+                            <a href="#"><div class="col-lg-1 cell text-center"  ng-bind="mat.one"  ></div></a>
+                            <a href="#"><div class="col-lg-2 cell text-center"  ng-bind="mat.draw"  ></div></a>
+                            <a href="#"><div class="col-lg-1 cell text-center"  ng-bind="mat.two"  ></div></a>
                         </div>
                     </div>	
          </div>	

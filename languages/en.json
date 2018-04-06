@@ -52,5 +52,8 @@
   "field_total" : "Amount",
   "field_available" : "Available",
   "field_depositar" : "Deposit",
-  "field_sacar" : "Cashout"
+  "field_sacar" : "Cashout",
+  "mnu_calendario" : "Calendar",
+   "mnu_estadisticas" : "Statistics",
+   "mnu_bets" : "Bets"
   }
