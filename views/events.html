@@ -1,34 +1,34 @@
-<header class="clearfix">
+<header class="clearfix"   >
         <i class="icono-2x iconsport {{ record_selected.icono }}"></i> <h1 class="mal-4x"  ng-bind="record_selected.description" ></h1>
         <a href="#" class="reload"  title="Reload"><i class="icono-1x fas fa-sync-alt mar-3x"></i>   </a>
-        <a href="#" class="back mar-2x">EVENTOS DEL DIA</a>
+        <a href="#" class="back mar-2x">{{ 'tit_eventosdia' | translate }}   </a>
     </header>
     <div class="sub-header">
-        <button type="button" class="btn btn-primary btn-sm" > <span>Hoy</span>  </button>
-        <button type="button" class="btn btn-all btn-sm" ><span>Todos</span></button>
+        <button type="button" class="btn btn-primary btn-sm" > <span>{{ 'tit_hoy' | translate }}</span>  </button>
+        <button type="button" class="btn btn-all btn-sm" ><span>{{ 'tit_todos' | translate }}</span></button>
     </div>
     <div class=""  ng-repeat="evento in ls_events"  >
             <div ng-show="evento.competitions.length>0 " class="content-main area">
                 <h2 class="area-titulo text-center" ng-bind="evento.description" > </h2>		
             </div>
             <div class=""  ng-repeat="comp in evento.competitions"  >
-                    <div class="col-lg-12 content-title content-title-country">
+                    <div class="col-lg-12 content-title content-title-country"  ng-show="comp.journeys.length>0 " >
                         <div class="col-lg-8 cell "><h2 class="" ng-bind="comp.description"  ></h2> </div>
                         <div class="col-lg-1 cell "><h4 class="text-center">1</h4></div>
                         <div class="col-lg-2 cell "><h4 class="text-center">X</h4></div>
                         <div class="col-lg-1 cell "><h4 class="text-center">2</h4></div>
                     </div>
                     <div class=""  ng-repeat="jorn in comp.journeys" >	
-                        <div class="col-lg-12 content-title-jornada cell">
+                        <div class="col-lg-12 content-title-jornada cell"  ng-show="jorn.matches.length>0 " >
                             <h2 class="" ng-bind="jorn.description" ></h2>
                         </div>
                         <div class="col-lg-12 content-text"  ng-repeat="mat in jorn.matches"  >
-                            <div class="col-lg-2 cell " >  {{mat.start | amUtc | amDateFormat:'DD MMMM HH:mm'}}   </div>
-                            <a href="#"><div class="col-lg-6 cell "> {{ mat.matchdetails[0].team.description }}  vs {{ mat.matchdetails[1].team.description }}  </div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center"  ng-bind="mat.one"  ></div></a>
-                            <a href="#"><div class="col-lg-2 cell text-center"  ng-bind="mat.draw"  ></div></a>
-                            <a href="#"><div class="col-lg-1 cell text-center"  ng-bind="mat.two"  ></div></a>
+                            <div class="col-lg-2 " >  {{mat.start | amUtc | amDateFormat:'DD MMMM HH:mm'}}   </div>
+                            <a href="javascript:void(0)"><div class="col-lg-6 cell "> {{ mat.matchdetails[0].team.description }}  vs {{ mat.matchdetails[1].team.description }}  </div></a>
+                            <a href="javascript:void(0)"><div class="col-lg-1 cell text-center"  ng-bind="mat.one"  ng-click="betmath(mat,1 )" ></div></a>
+                            <a href="javascript:void(0)"><div class="col-lg-2 cell text-center"  ng-bind="mat.draw" ng-click="betmath(mat,0 )"  ></div></a>
+                            <a href="javascript:void(0)"><div class="col-lg-1 cell text-center"  ng-bind="mat.two"  ng-click="betmath(mat,2 )" ></div></a>
                         </div>
                     </div>	
-         </div>	
+            </div>	
     </div>	

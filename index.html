@@ -68,11 +68,13 @@
 	<script src="core/models/users.js"></script>
 	<script src="core/models/wallets.js"></script>
 	<script src="core/models/typecoins.js"></script>
+	<script src="core/models/bets.js"></script>
 	<!-- Core  controllers -->
 	<script src="core/controllers/home.js"></script>
 	<script src="core/controllers/login.js"></script>
 	<script src="core/controllers/users.js"></script>
 	<script src="core/controllers/wallets.js"></script>
+	<script src="core/controllers/bets.js"></script>
 </head>
 
 <body ng-controller="homeCtrl" >
@@ -177,7 +179,13 @@
 			</div>	
 		</div>
 		<div class="sidebar-bet col-lg-2"  >
-				<h2>{{ 'mnu_bets' | translate }}</h2>	
+			<h2>{{ 'mnu_bets' | translate }}</h2>	
+			<div ng-include="$root.view_bet" >  
+			</div>	
+			<hr/>
+			<h2> {{ 'mnu_inplay' | translate }}</h2>	
+			<div ng-include="$root.view_play" >  
+			</div>	
 		</div>
     </div>
 

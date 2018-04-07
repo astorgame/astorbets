@@ -20,6 +20,7 @@
   "login_err_email_2": "Your user must have look like an email address",
   "login_err_pass_1" :"You must enter your password",
   "topnav_tip_idioma":"Select your language",
+  "tit_nosession":"Please login to place bet!",
   "devby": "Developed by AstorGame",
   "derechos": "© 2017. All rights reserved.",
   "action": "Action",
@@ -55,5 +56,18 @@
   "field_sacar" : "Cashout",
   "mnu_calendario" : "Calendar",
    "mnu_estadisticas" : "Statistics",
-   "mnu_bets" : "Bets"
+   "mnu_bets" : "Bets",
+   "mnu_inplay" : "In Play",
+   "tit_eventosdia" : "DAY EVENTS",
+   "tit_hoy" : "Today",
+   "tit_todos" : "All",
+   "field_capuesta" : "Place bet",
+   "field_montoapuesta" : "Bet amount",
+   "field_montoreturn" : "To Return",
+   "field_betmax" : "Ganancia",
+   "mnu_tit_bet1" : "Winner",
+   "mnu_tit_betx" : "Draw",
+   "mnu_tit_bet2" : "Winner",
+   "field_wallet" : "Wallet"
+  
   }

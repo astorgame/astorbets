@@ -495,3 +495,46 @@ background-color: rgba(255,97,0,0.87);
     font-size: 0.92rem!important; 
 
 }
+.bet-input-amount{
+    background: #4e4e4e!important;
+    border: 1px solid #000!important;
+    color: #fff!important;
+    width: 100%!important;
+    padding: 5px!important;
+    border-radius: 3px 3px 0 0!important;
+    font-size: 0.99rem!important; 
+}
+.bet-input-wallet{
+  background: #4e4e4e!important;
+  border: 1px solid #000!important;
+  color: #fff!important;
+  width: 100%!important;
+  padding: 5px!important;
+  border-radius: 3px 3px 0 0!important;
+  font-size: 0.87rem!important; 
+}
+
+.bet-title-match{
+  font-family: ProximaNova-Bold; margin: 0;
+  /*background-color: #5BFF3B!important;**/
+  color: #fff!important;
+  font-size: 0.99rem!important; 
+}
+.bet-title-team{
+  font-family: ProximaNova-Bold; margin: 0;
+ /* background-color: #5BFF3B!important;*/
+  color: #5BFF3B!important;
+  font-size: 0.98rem!important; 
+
+}
+
+.bet-title-std{
+     font-family: ProximaNova-Bold; margin: 0;
+     background-color: #5BFF3B!important;
+     color: #333!important;
+     font-size: 0.92rem!important; 
+     padding: 6px 6px 6px 6px;
+
+}
+
+

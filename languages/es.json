@@ -21,6 +21,7 @@
        "login_err_email_2": "Tu usuario debe parecerse a una dirección de correo electrónico",
        "login_err_pass_1" :"Debes ingresar tu contraseña",
        "topnav_tip_idioma":"Selecciona tu idioma",
+       "tit_nosession":"Por favor inicie sesión para apostar!",
        "devby": "Desarrollado por AstorGame",
        "derechos": "© 2017. Todos los derechos reservados.",
        "action": "Acción",
@@ -56,5 +57,17 @@
        "field_sacar" : "Sacar",
        "mnu_calendario" : "Calendario",
        "mnu_estadisticas" : "Estadisticas",
-       "mnu_bets" : "Apuestas"
+       "mnu_bets" : "Apuestas",
+       "mnu_inplay" : "Jugando",
+       "tit_eventosdia" : "EVENTOS DEL DIA",
+       "tit_hoy" : "Hoy",
+       "tit_todos" : "Todos",
+       "field_capuesta" : "Colocar apuesta",
+       "field_montoapuesta" : "Monto",
+       "field_montoreturn" : "Ganancia",
+       "field_betmax" : "Apuesta maxima",
+       "mnu_tit_bet1" : "Ganador",
+       "mnu_tit_betx" : "Empate",
+       "mnu_tit_bet2" : "Ganador",
+       "field_wallet" : "Billetera"
   }
