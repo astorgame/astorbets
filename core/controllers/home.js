@@ -26,9 +26,22 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             
         });   
     };
+    $scope.getListBets = function(){
+        var query1 = {
+            listfbets: 1
+        };
+        BetsService.list(query1).then(function(response){
+            $scope.ls_bets =response.data.data;
+        },function(response){
+            
+        });   
+    };
+
+
 
     $scope.betmath = function(objmatch,tipo) {
         $scope.getListWallets() ;
+        $scope.getListBets ();
         var stds  =0;
         var ope = "";
         var team_bet = "",team_bet_id = "0" ;
@@ -139,6 +152,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                 };
                 BetsService.store(datasend).then(function(response){
                     var d = response.data;
+                    $scope.getListBets ();
                     if( d.sucess){
                         $rootScope.showAlert (d.type,d.message);
                     }else{

@@ -528,6 +528,23 @@ background-color: rgba(255,97,0,0.87);
 
 }
 
+.bet-title-rowbets{
+  font-family: ProximaNova-Bold; margin: 0;
+  background-color: #3b53ff36!important;
+  color: #5BFF3B!important;
+  font-size: 0.73rem!important; 
+}
+
+.hr-bets { 
+  /*border: 3px solid #666; border-radius: 300px/10px; height: 0px; text-align: center;*/
+  width: 100%!important;
+  border: 0; 
+  height: 2px; 
+  border-top: 1px dashed black;
+   border-bottom: 1px dashed black;
+}
+
+
 .bet-title-std{
      font-family: ProximaNova-Bold; margin: 0;
      background-color: #5BFF3B!important;
