@@ -69,5 +69,9 @@
        "mnu_tit_bet1" : "Ganador",
        "mnu_tit_betx" : "Empate",
        "mnu_tit_bet2" : "Ganador",
-       "field_wallet" : "Billetera"
+       "field_wallet" : "Billetera",
+       "bet_cancel" : "Retirar apuesta",
+       "confirmCancel" : "Confirma que desea retirar la apuesta"
+       
+       
   }

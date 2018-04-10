@@ -24,6 +24,7 @@ button:hover span {
 .text-success{
   color: #fff!important;
 }
+
 .text-primary {
    color: #fff!important;
 }
@@ -37,6 +38,13 @@ button:hover span {
 .text-secundary:hover{
   color: #fff!important;
 }
+.text-white{
+  color: #fff!important;
+}
+.text-red{
+  color: rgb(231, 22, 22)!important;
+}
+
 body.md-default-theme, body, html.md-default-theme, html {
     color: #fff !important; 
     background-color:  #0C2C3F !important; 
@@ -542,6 +550,12 @@ background-color: rgba(255,97,0,0.87);
   height: 2px; 
   border-top: 1px dashed black;
    border-bottom: 1px dashed black;
+}
+
+.hr-line1 { 
+  background-color: rgba(91, 255, 59, 0.18) !important;
+  width: 100%!important;
+  height: 2px; 
 }
 
 

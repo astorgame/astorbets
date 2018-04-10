@@ -23,7 +23,9 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $l
                     $localStorage.user =  d.data.data.user;
                     $rootScope.getUserinfo();
                     //$location.path('/');  
-                    $rootScope.showWallet(); 
+                   // $rootScope.showWallet(); 
+                   $rootScope.actual_view="views/events.html";
+                   $rootScope.getListGames(1);
                 }
             }).catch(function(err) {
                 $scope.loginFailed=true;

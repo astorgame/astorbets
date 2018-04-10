@@ -1,5 +1,5 @@
 'use strict';
-app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,$timeout, $q,$mdDialog,TypegamesService, GamesService,AreasService,WalletsService,BetsService  ) {
+app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,$timeout, $q, $filter,$mdDialog,TypegamesService, GamesService,AreasService,WalletsService,BetsService  ) {
     $rootScope.getUserinfo();
     var opcx = $stateParams.game;
 
@@ -72,7 +72,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             wallet: 0
         };
         $scope.sel_matchbet =betdata;
-        
         $rootScope.view_bet="views/priv/bets/bets.html";
     };  
 
@@ -90,7 +89,8 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             });   
         };
 
-        $scope.getListGames = function(typegame_id){
+        $rootScope.getListGames = function(typegame_id){
+            $scope.getListBets();
             var querygames = {
                 filterby: 'typegame_id',
                 filterid: typegame_id,
@@ -108,6 +108,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
         
         $scope.getGame  = function(item_sel) {
             $rootScope.actual_view="views/events.html";
+            $rootScope.view_play="views/live.html";
             $scope.record_selected = item_sel;
             var queryareas = {
                 filterby: 'game_id',
@@ -152,7 +153,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                 };
                 BetsService.store(datasend).then(function(response){
                     var d = response.data;
-                    $scope.getListBets ();
+                    $scope.getListBets();
                     if( d.sucess){
                         $rootScope.showAlert (d.type,d.message);
                     }else{
@@ -167,8 +168,31 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                 $scope.showerror=true;
                 $scope.deserr = "Todos los campos son requeridos"; 
             }    */
-                
+        };
 
+
+        $scope.cancel_bet = function(ev, id) {
+            var l_txt="confirmCancel";
+            var confirm = $mdDialog.confirm()
+            .title($filter('translate')(l_txt))
+            .targetEvent(ev)
+            .ok($filter('translate')('yes'))
+            .cancel($filter('translate')('no'));
+    
+            $mdDialog.show(confirm).then(function() {
+                BetsService.cancel(id).then(function(response){
+                    var d = response.data;
+                    if( d.sucess){
+                        $scope.getListBets();
+                    }else{
+                        $rootScope.showAlert (d.type,d.message);
+                    }
+                }).catch(function(err){
+                    //console.log(err);
+                })
+            }, function() {
+    
+            });
         };
 
 

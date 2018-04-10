@@ -11,6 +11,12 @@ appModels.factory('BetsService', function($http, CONFIG) {
         store: function(query_) {
             return $http.post(urlx +  entidad, query_);
         },
+        cancel : function(id_) {
+            var query_ = {
+                id : id_
+            };
+            return $http.put(urlx + entidad, query_ );
+        }
 
     };
 

@@ -68,6 +68,8 @@
    "mnu_tit_bet1" : "Winner",
    "mnu_tit_betx" : "Draw",
    "mnu_tit_bet2" : "Winner",
-   "field_wallet" : "Wallet"
+   "field_wallet" : "Wallet",
+   "bet_cancel" : "Withdraw bet",
+   "confirmCancel" : "Confirm that you want to withdraw the bet"
   
   }

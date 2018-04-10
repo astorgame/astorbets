@@ -1,19 +1,10 @@
 <md-card ng-if="!isAuthenticated()" >
-	<div class="col-lg-12 content-title-jornada cell"  >
-		<h2 class="" >{{ 'tit_nosession' | translate }} </h2>
-	</div>
-</md-card>
+		<div class="col-lg-12 content-title-jornada cell"  >
+					<h2 class="" >{{ 'tit_nosession' | translate }} </h2>
+		</div>
+	</md-card>
 <md-card ng-if="isAuthenticated()"   >
-	<div class="row bet-title-rowbets"  ng-repeat="itm in ls_bets"  >
-		<div class="col-lg-12 text-center"  > <span ng-bind="itm.tit"  >  </span> </div>
-		<div class="col-lg-3"  > <span ng-bind="itm.des_typebet"  >  </span> </div>
-		<div class="col-lg-6"  > <span ng-bind="itm.betwiners[0].team.description"  >  </span>   </div>
-		<div class="col-lg-3  "> <span ng-bind='( itm.amount +" "+itm.des_typecoin )' >  </span> </div>
-		<hr class="hr-bets" />  	
-	</div>
-
 	<form name="betForm"  class="form-horizontal padding"  ng-submit="placebet()" >
-		
 			<div class="row"> 
 				<div class="col-md-12">
 					<span ng-bind="sel_matchbet.bet_match"  class="bet-title-match text-center">  </span>
@@ -73,6 +64,8 @@
 					<button type="submit" ng-disabled="betForm.$invalid"  ><span>{{ 'field_capuesta' | translate }}</span></button>
 				</div>
 			</div>	
-	
 	</form>
+	<br/>
+	<hr  class="hr-line1" />
+
 </md-card>

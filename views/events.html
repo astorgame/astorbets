@@ -7,7 +7,7 @@
         <button type="button" class="btn btn-primary btn-sm" > <span>{{ 'tit_hoy' | translate }}</span>  </button>
         <button type="button" class="btn btn-all btn-sm" ><span>{{ 'tit_todos' | translate }}</span></button>
     </div>
-    <div class=""  ng-repeat="evento in ls_events"  >
+    <div class="" ng-repeat="evento in ls_events"  >
             <div ng-show="evento.competitions.length>0 " class="content-main area">
                 <h2 class="area-titulo text-center" ng-bind="evento.description" > </h2>		
             </div>
