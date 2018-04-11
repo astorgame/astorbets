@@ -24,7 +24,7 @@
        "tit_nosession":"Por favor inicie sesión para apostar!",
        "devby": "Desarrollado por AstorGame",
        "derechos": "© 2017. Todos los derechos reservados.",
-       "action": "Acción",
+       "action": "Accion",
        "search" : "Buscar",
        "print" : "Imprimir",
        "reload" : "Recargar",
@@ -51,6 +51,7 @@
        "field_typecoin" : "Moneda",
        "field_addtypecoin" : "Agregar Moneda",
        "field_address" : "Direccion",
+       "field_amount" : "Monto",
        "field_total" : "Total",
        "field_available" : "Disponible",
        "field_depositar" : "Depositar",
@@ -71,7 +72,18 @@
        "mnu_tit_bet2" : "Ganador",
        "field_wallet" : "Billetera",
        "bet_cancel" : "Retirar apuesta",
-       "confirmCancel" : "Confirma que desea retirar la apuesta"
-       
-       
+       "confirmCancel" : "Confirma que desea retirar la apuesta",
+       "mnu_transacciones" : "Transacciones",
+       "mnu_mybets" : "Mis apuestas",
+       "field_operation" : "Operacion",
+       "field_date" : "Fecha",
+       "field_description" : "Descripcion",
+       "field_status" : "Estatus",
+       "field_typebet" : "Tipo Apuesta",
+       "field_cuota" : "Cuota",
+       "field_return" : "Ganancia",
+       "newPassword" : "Contraseña nueva",
+       "currentPassword" : "Contraseña actual",
+       "security" : "Seguridad"
+
   }

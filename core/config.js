@@ -10,9 +10,10 @@ app.config(['$authProvider','CONFIG',function($authProvider,CONFIG) {
 ]);
 
 app.config(function($translateProvider) {
-        $translateProvider.useStaticFilesLoader({
-            prefix: 'languages/',
-            suffix: '.json'
-        });
+    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'languages/',
+        suffix: '.json'
+    });
      $translateProvider.preferredLanguage('es');
 });

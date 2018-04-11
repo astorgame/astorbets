@@ -7,11 +7,16 @@ a:hover {
   color: #5BFF3B!important;
   text-decoration: none;
 }
-
+.puntero {
+	cursor: pointer!important;
+}
 button:hover span {
   color: #fff;
 }
-
+.coin-wrapper{
+  height: 48px;
+  width: 48px;
+}
 .flag-wrapper{
     height: 48px;
     width: 48px;
@@ -344,17 +349,17 @@ i.link{
   margin-left: 5px;
 }
 .circular2 img {
-border: 1px solid #526069;
-margin: 0;
-padding: 0;
-border-radius: 50%;
-overflow: hidden;
-width: 96px;
-height: 96px;
-margin-right: 5px;
-margin-top: 5px;
-margin-bottom: 10px;
-margin-left: 5px;
+    border: 1px solid #526069;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
 }
 
 .circular img:hover {
@@ -372,21 +377,24 @@ height: 40px;
 margin-right: 5px;
 }
 .md-menu-content-cerop{
-padding-top: 0px!important;
+   padding-top: 0px!important;
 }
 
 .account-header {
-color: #0078FF;
-background-color: rgba(255,97,0,0.87);
+  color: #FFF;
+  background-color: rgba(91, 255, 59, 0.18);
 }
 
 .account-header-text {
-  margin-right: 1px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  margin-left: 15px;
+    margin-right: 1px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 15px;
 }
 
+md-menu-divider{
+    background-color: #113B25 !important;
+}
 
 
 /*--------   L O G I N  ------------
@@ -539,12 +547,21 @@ background-color: rgba(255,97,0,0.87);
 
 }
 
+
+
 .bet-title-rowbets{
-  font-family: ProximaNova-Bold; margin: 0;
-  background-color: #3b53ff36!important;
-  color: #5BFF3B!important;
-  font-size: 0.73rem!important; 
+    font-family: ProximaNova-Bold; margin: 0;
+    background-color: rgba(91, 255, 59, 0.18)!important; /*  #3b53ff36!important;*/
+    color: #EEE!important;
+    font-size: 0.73rem!important; 
 }
+
+.md-item-title-sm{
+    
+   font-size: 12px!important;
+}
+
+
 
 .hr-bets { 
   /*border: 3px solid #666; border-radius: 300px/10px; height: 0px; text-align: center;*/
@@ -571,4 +588,60 @@ background-color: rgba(255,97,0,0.87);
 
 }
 
+.tag {
+  color: #fff;
+}
+
+a.tag:focus, a.tag:hover {
+  color: #fff;
+}
+
+.tag-default {
+  background-color: #FF7E00;
+  color:#fff;
+}
+
+.tag-default[href]:focus, .tag-default[href]:hover {
+  background-color: #c6d3d7;
+}
+
+.tag-primary {
+  background-color: #f2a654;
+}
+
+.tag-primary[href]:focus, .tag-primary[href]:hover {
+  background-color: #ee8d25;
+}
+
+.tag-success {
+  background-color: #46be8a;
+}
+
+.tag-success[href]:focus, .tag-success[href]:hover {
+  background-color: #369b6f;
+}
+
+.tag-info {
+  background-color: #57c7d4;
+}
+
+.tag-info[href]:focus, .tag-info[href]:hover {
+  background-color: #33b6c5;
+}
+
+.tag-warning {
+  background-color: #f2a654;
+}
+
+.tag-warning[href]:focus, .tag-warning[href]:hover {
+  background-color: #ee8d25;
+}
+
+.tag-danger {
+  background-color: #f96868;
+}
+
+.tag-danger[href]:focus, .tag-danger[href]:hover {
+  background-color: #f73737;
+}
 

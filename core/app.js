@@ -1,6 +1,7 @@
 'use strict';
 window.app_version = 1.1;
 var app =angular.module('astorbetsApp', ['astorbetsApp.models',
+        'ngSanitize',
         'ui.router',
         'satellizer',
         'ngMaterial', 
@@ -14,6 +15,7 @@ var appModels = angular.module('astorbetsApp.models', []);
 
 app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$translate','$mdDialog' ,'$filter',
     function ($rootScope,$timeout,$location,$auth,$localStorage,$translate, $mdDialog,$filter ) {
+
         $rootScope.actual_view="";
         $rootScope.view_bet="";
         $rootScope.view_play="";
@@ -63,14 +65,19 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
             $rootScope.actual_view="views/register.html";
         };   
         $rootScope.showWallet = function() {
-            $rootScope.getUserinfo();
+           // $rootScope.getListWallets();
             $rootScope.actual_view="views/priv/wallets/list.html";
         }; 
         $rootScope.showProfile = function() {
             $rootScope.getUserinfo();
             $rootScope.actual_view="views/priv/users/profile.html";
-        };  
-
+        }; 
+        $rootScope.showTransactions = function() {
+            $rootScope.actual_view="views/priv/transactions/list.html";
+        }; 
+        $rootScope.showMyBets = function() {
+            $rootScope.actual_view="views/priv/bets/list.html";
+        }; 
     }
 ]);
 

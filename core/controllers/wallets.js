@@ -79,8 +79,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
         WalletsService.store(datasend).then(function(response){
             var d = response.data;
             if( d.sucess){
-                $scope.getList ();
-
+                $scope.getList();
                 $rootScope.showAlert (d.type,d.message);
             }else{
                 $rootScope.showAlert (d.type,d.message);

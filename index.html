@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="astorbetsApp" class="no-js" lang="en"  >
 <head>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  	<title>AstorBets - eSports & Online Gaming platform</title>
  	<meta name="Author" content="AstorGame">
  	<meta data-property="og:site_name" content="AstorGame">
@@ -12,7 +12,8 @@
  	<meta data-property="og:description" content="eSport & Online Gaming platform – Decentralized games, sports betting and Casino using blockchain, smart contracts + Provably Fair">
  	<meta name = "keywords" content = "eSports, blockchain, cryptocurrency, tokens, Ethereum, astorgame, smart contract, bettings, casino, gaming, lottery, bitcoin, tokenmarket, coinmarketcap, btc">
     
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link rel="shortcut icon" href="img/favicon/fav.png" type="image/x-icon">
@@ -42,6 +43,7 @@
 	
 	<!-- AngularJs componentes -->
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/satellizer/dist/satellizer.min.js"></script>
 	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
@@ -69,12 +71,14 @@
 	<script src="core/models/wallets.js"></script>
 	<script src="core/models/typecoins.js"></script>
 	<script src="core/models/bets.js"></script>
+	<script src="core/models/transactions.js"></script>
 	<!-- Core  controllers -->
 	<script src="core/controllers/home.js"></script>
 	<script src="core/controllers/login.js"></script>
 	<script src="core/controllers/users.js"></script>
 	<script src="core/controllers/wallets.js"></script>
 	<script src="core/controllers/bets.js"></script>
+	<script src="core/controllers/transactions.js"></script>
 </head>
 
 <body ng-controller="homeCtrl" >
@@ -83,44 +87,62 @@
 			<ul class="fl_lt">
 				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
 				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
-				<li>
-				  <md-menu md-position-mode="target-right bottom" >
-						<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)">
-							<span class="fas fa-flag "> </span>
-						</md-button>
-						<md-menu-content width="3">
-							<md-menu-item>
-								<md-button ng-click="changeLanguage('en')">
-									<i class="flag-sm flag-sm-GB"></i>
-									<span>English</span>
-								</md-button>
-							</md-menu-item>
-							<md-menu-divider></md-menu-divider>
-							<md-menu-item>
-								<md-button  ng-click="changeLanguage('es')">
-									<i class="flag-sm flag-sm-ES"></i>
-									<span>Español </span>
-								</md-button>
-							</md-menu-item>
-						</md-menu-content>
-				  </md-menu>
-			   </li>
 			</ul>
-			
 			<ul class="fl_rt" ng-if="!isAuthenticated()"  >
+				<li>
+					<md-menu md-position-mode="target-right bottom"   >
+								  <md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="language-menu"  >
+									  <span class="fas fa-flag "> </span>
+								  </md-button>
+								  <md-menu-content width="3">
+									  <md-menu-item>
+										  <md-button ng-click="changeLanguage('en')">
+											  <i class="flag-sm flag-sm-GB"></i>
+											  <span>English</span>
+										  </md-button>
+									  </md-menu-item>
+									  <md-menu-divider></md-menu-divider>
+									  <md-menu-item>
+										  <md-button  ng-click="changeLanguage('es')">
+											  <i class="flag-sm flag-sm-ES"></i>
+											  <span>Español </span>
+										  </md-button>
+									  </md-menu-item>
+								  </md-menu-content>
+					</md-menu>
+				</li>
 				<li><button class="btn-lgn" ng-click="showLogin()"  ><span>  {{ 'login' | translate }} </span></button></li>
 				<li><button ng-click="showSignup()" ><span>{{ 'singup' | translate }} </span></button></li>
 			</ul>
 			<ul class="fl_rt" ng-if="isAuthenticated()"  >
-
-
-				<li><button ng-click="showWallet()"    ><span>{{ 'mnu_balance' | translate }} </span></button></li>
+				<li>
+					<md-menu md-position-mode="target-right bottom"  >
+								  <md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="language-menu"  >
+									  <span class="fas fa-flag "> </span>
+								  </md-button>
+								  <md-menu-content width="3">
+									  <md-menu-item>
+										  <md-button ng-click="changeLanguage('en')">
+											  <i class="flag-sm flag-sm-GB"></i>
+											  <span>English</span>
+										  </md-button>
+									  </md-menu-item>
+									  <md-menu-divider></md-menu-divider>
+									  <md-menu-item>
+										  <md-button  ng-click="changeLanguage('es')">
+											  <i class="flag-sm flag-sm-ES"></i>
+											  <span>Español </span>
+										  </md-button>
+									  </md-menu-item>
+								  </md-menu-content>
+					</md-menu>
+				</li>	
 				<li>
 				<md-menu md-position-mode="target-right bottom" >
-					<div  class="circular"  ng-click="openMenu($mdMenu, $event)" >
+					<div  class="circular"  ng-mouseenter="openMenu($mdMenu, $event)" >
 						<img  img-preload ng-src="{{ $root.userinfo.image }}" class="topnav-img" id="circsm1" >
 					</div>
-					<md-menu-content width="5"  class="md-menu-content-cerop">
+					<md-menu-content width="5"  class="md-menu-content-cerop"  ng-mouseleave="$mdMenu.close()"  aria-label="profile-menu"  >
 							<md-subheader class="md-no-sticky account-header">
 								<div class="row">
 									<div class="col-md-3">
@@ -130,31 +152,54 @@
 									</div>
 									<div class="col-sm-9">
 										<div class="text-right">
-											<h4 class="font-size-14 font-white">{{ $root.userinfo.name }}    </h4>
-											<h4 class="font-size-13 font-white">{{ $root.userinfo.email }}   </h4>
-											<md-button class="md-raised"  ui-sref="profile" >{{ 'profilee' | translate }} </md-button>
+											<div class="row">
+												<div class="col-sm-12 text-right">
+													<h5 class="font-size-14 font-white">{{ $root.userinfo.description }} </h5>
+													<small class="font-size-13 font-white">{{ $root.userinfo.email }}   </small>
+												</div>	
+											</div>	
+											<div class="row">
+												<div class="col-sm-12 text-right">
+													<br/>
+												   <button ng-click="showProfile()"    ><span>  {{ 'profilee' | translate }} </span></button>
+												</div>  
+											</div>
 										</div>
 									</div>
 								</div>
-		
 							</md-subheader>
 							<md-menu-item>
-								<md-button ui-sref="profile" >
-									<i class="icon wb-settings" aria-hidden="true"></i>  {{ 'ajustesen' | translate }}
+								<md-button ng-click="showWallet()"  >
+									<span>  
+									   <i class="text-white fas fa-hand-holding-usd" aria-hidden="true"></i>  {{ 'mnu_balance' | translate }}
+									</span>	
+								</md-button>
+							</md-menu-item>
+							<md-menu-item>
+								<md-button ng-click="showTransactions()"  >
+									<span>  
+										<i class="text-white fas fa-cogs" aria-hidden="true"></i>  {{ 'mnu_transacciones' | translate }}
+									</span>	
+								</md-button>
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+								<md-button ng-click="showMyBets()"  >
+									<span>  
+										<i class="text-white fas fa-trophy" aria-hidden="true"></i>  {{ 'mnu_mybets' | translate }}
+									</span>	
 								</md-button>
 							</md-menu-item>
 							<md-menu-divider></md-menu-divider>
 							<md-menu-item>
 								<md-button  ng-click="cerrarSesion()" >
-									<i class="icon wb-power" aria-hidden="true"></i> {{ 'logout' | translate }}
+									<i class="text-white fas fa-sign-out-alt" aria-hidden="true"></i> <span class="md-item-title-sm" >  {{ 'logout' | translate }}  </span>  
 								</md-button>
 							</md-menu-item>
 					 </md-menu-content>
 				   </md-menu>
 				</li>	
-				<li><button class="btn-lgn"  ng-click="cerrarSesion()" ><span>{{ 'logout' | translate }}</span></button></li>
-
-
+				<li> </li>
 			</ul>
 		</div>
 	</header>
@@ -191,16 +236,16 @@
 				<div class="row bet-title-rowbets"  ng-repeat="itm in ls_bets"  >	
 					<div class="col-lg-10 text-left"  > <span ng-bind="itm.tit"  >  </span> </div>
 					<div class="col-lg-2 text-right"  > 
-							<a ng-click="cancel_bet($event, itm.id)">
+							<a ng-click="cancel_bet($event, itm.id)" class="puntero"   >
 								<i class="icono-2x fas fa-times-circle text-red"></i>
 								<md-tooltip  md-direction="bottom">{{ 'bet_cancel' | translate }}</md-tooltip>
 							</a>    
 					</div>
 					<div class="col-lg-3"  > <span ng-bind='itm.des_typebet + ":" '  >  </span> </div>
 					<div class="col-lg-9"  > <span ng-bind="itm.betwiners[0].team.description"  >  </span>   </div>
-					<div class="col-lg-5"> <span ng-bind='( itm.amount +""+itm.des_typecoin )' >  </span> </div>
-					<div class="col-lg-7"> <span ng-bind='"* "+ itm.cuota +" Return: "+ (itm.amount * itm.cuota)  +""+itm.des_typecoin' >  </span> </div>
-					
+					<div class="col-lg-7 text-left"> <span ng-bind='"Bet: "+( itm.amount +""+itm.des_typecoin )' >  </span> </div>
+					<div class="col-lg-5 text-right"> <span ng-bind='"X: "+ itm.cuota' >  </span> </div>
+					<div class="col-lg-12 text-left"  > <span ng-bind='"Return: "+ (itm.amount * itm.cuota)  +""+itm.des_typecoin' >   </div>
 					<div class="col-lg-12 text-right"  > <span am-time-ago="itm.created_at | amUtc | amLocal " class="text-white" ></span> </div>
 					<hr class="hr-bets" />  	
 				</div>

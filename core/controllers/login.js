@@ -1,5 +1,7 @@
 'use strict';
-app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $localStorage) {
+app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $localStorage ) {
+
+
 
     $scope.user = null;
     $scope.pass = null;

@@ -16,31 +16,35 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
     $scope.showerror=false;
     $scope.deserr = "";
 
-    $scope.getListWallets = function(){
-        var query1 = {
-            listfbets: 1
-        };
-        WalletsService.list(query1).then(function(response){
-             $scope.ls_wallets =response.data.data;
-        },function(response){
-            
-        });   
+    $scope.getListSWallets = function(){
+        if(  $rootScope.isAuthenticated()  ){
+            var query1 = {
+                listfbets: 1
+            };
+            WalletsService.list(query1).then(function(response){
+                $scope.ls_wallets =response.data.data;
+            },function(response){
+                
+            });   
+       }; 
     };
     $scope.getListBets = function(){
-        var query1 = {
-            listfbets: 1
-        };
-        BetsService.list(query1).then(function(response){
-            $scope.ls_bets =response.data.data;
-        },function(response){
-            
-        });   
+        if(  $rootScope.isAuthenticated()  ){
+            var query1 = {
+                listfbets: 1
+            };
+            BetsService.list(query1).then(function(response){
+                $scope.ls_bets =response.data.data;
+            },function(response){
+                
+            });  
+        };    
     };
 
 
 
     $scope.betmath = function(objmatch,tipo) {
-            $scope.getListWallets() ;
+            $scope.getListSWallets() ;
             $scope.getListBets ();
             var stds  =0;
             var ope = "";
@@ -141,9 +145,8 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
 
         
         $scope.placebet = function(){
-            console.log("datos:"+ $scope.sel_matchbet.monto + ", wallet :"+$scope.sel_matchbet.wallet );
-
-                $scope.showerror=false; 
+            $scope.showerror=false; 
+            if(  $rootScope.isAuthenticated()  ){
                 var datasend = {
                     match : $scope.sel_matchbet.matchid,
                     amount : $scope.sel_matchbet.monto ,
@@ -163,9 +166,11 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                 }).catch(function(err){
                     $scope.showerror=true;
                     $scope.deserr = err.data.message;
-
                 });
- 
+            }else{
+                $scope.showerror=true;
+                $scope.deserr = $filter('translate')('tit_nosession');
+            }   
         };
 
 

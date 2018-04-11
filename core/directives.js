@@ -7,7 +7,7 @@ app.directive('imgPreload', ['$rootScope', function($rootScope) {
       },
       link: function(scope, element, attrs) {
           var idele='crp'+attrs.id;
-          var htmEl ='<img id="'+idele+'" src="images/loading.gif" class="spinner-img" >';
+          var htmEl ='<img id="'+idele+'" src="img/loading.gif" class="spinner-img" >';
           var ngEl = angular.element(htmEl);
             element.on('load', function() {
                // console.debug("imagen "+ attrs.id +" cargada!");

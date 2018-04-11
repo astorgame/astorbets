@@ -50,7 +50,8 @@
   "field_typecoin" : "Currency",
   "field_addtypecoin" : "Add Currency",
   "field_address" : "Direccion",
-  "field_total" : "Amount",
+  "field_amount" : "Amount",
+  "field_total" : "Total",
   "field_available" : "Available",
   "field_depositar" : "Deposit",
   "field_sacar" : "Cashout",
@@ -70,6 +71,20 @@
    "mnu_tit_bet2" : "Winner",
    "field_wallet" : "Wallet",
    "bet_cancel" : "Withdraw bet",
-   "confirmCancel" : "Confirm that you want to withdraw the bet"
+   "confirmCancel" : "Confirm that you want to withdraw the bet",
+   "mnu_transacciones" : "Transactions",
+   "mnu_mybets" : "My bets",
+   "field_operation" : "Operation",
+   "field_date" : "Date",
+   "field_description" : "Description",
+   "field_status" : "Status",
+   "field_typebet" : "Type Bet",
+   "field_cuota" : "Cuota",
+   "field_return" : "Return",
+   "newPassword" : "New password",
+   "currentPassword" : "Current password",
+   "security" : "Security"
+
+  
   
   }

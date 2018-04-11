@@ -16,30 +16,36 @@
 				<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
 					<tr md-row>
 						<th width="20%" md-column md-order-by="typecoin_id"><span>{{ 'field_typecoin' | translate }}</span></th>
-						<th width="40%" md-column md-order-by="address"><span>{{ 'field_address' | translate }}</span></th>
-						<th width="15%" md-column md-order-by="total"><span>{{ 'field_total' | translate }}</span></th>
-						<th width="15%" md-column md-order-by="available"><span>{{ 'field_available' | translate }}</span></th>
-						<th width="10%" md-column><span>{{ 'action' | translate }}</span></th>
+						<th width="35%" md-column md-order-by="address"><span>{{ 'field_address' | translate }}</span></th>
+						<th width="15%"  class="text-right" md-column md-order-by="total"><span>{{ 'field_total' | translate }}</span></th>
+						<th width="15%"  class="text-right"   md-column md-order-by="available"><span class="text-right" >{{ 'field_available' | translate }}</span></th>
+						<th width="15%"  class="text-center"  md-column><span class="text-center" >{{ 'action' | translate }}</span></th>
 					</tr>
 				</thead>
 				<tbody md-body>
 					<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
 						<td width="20%" class="paddingY"  md-cell>
-							<figure>
-								<img ng-src="{{item.typecoin.logo}}" alt="">
-							</figure>
-							<span>{{item.typecoin.description}}</span>
+							<div class="row">
+								<div class="col-md-12" >	
+									<img class="coin-wrapper"  ng-src="{{item.typecoin.logo}}" alt="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" >
+										<span>{{item.typecoin.description}}</span>
+								</div>	
+							</div>	
 						</td>
-						<td width="40%" md-cell>{{item.address}}</td>
-						<td width="15%" md-cell>{{item.total}}</td>
-						<td width="15%" md-cell>{{item.available}}</td>
-						<td width="10%" md-cell class="actions">
+						<td width="35%" md-cell>{{item.address}}</td>
+						<td width="15%" md-cell class="text-right"  >{{item.total}}</td>
+						<td width="15%" md-cell class="text-right"  >{{item.available}}</td>
+						<td width="15%" md-cell class="actions text-center" >
 							<a ng-click="walletDeposit($event, item.id)">
 								<i class="fas fa-cart-plus"></i>
 								<md-tooltip md-direction="bottom">{{ 'field_depositar' | translate }}</md-tooltip>
 							</a> 
 							<a ng-click="walletCashout($event, item.id)">
-								<i class="fas fa-share-square"></i>
+								<i class="fas fa-paper-plane"></i>
 								<md-tooltip md-direction="bottom">{{ 'field_sacar' | translate }}</md-tooltip>
 							</a>  	
 						</td>

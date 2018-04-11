@@ -1,0 +1,90 @@
+<md-card>
+	<md-toolbar class="md-table-toolbar md-default">
+		<div class="md-toolbar-tools">
+			<span> {{ 'profilee' | translate }}</span>
+		</div>
+	</md-toolbar>
+	<md-tabs md-dynamic-height md-border-bottom>
+		<md-tab label="{{ 'profilee' | translate }}">
+				<form name="profileSettingsForm">
+				   <div class="container">
+						<div class="row">
+								<div class="col-md-12"> <br/>  </div>
+						</div>		
+						<div class="row">
+							<div class="col-md-3"></div>	
+							<div class="col-md-6">
+								<md-input-container class="md-block">
+									<label>{{ 'field_name' | translate }}</label>
+									<input required type="text" name="description" ng-model="$root.userinfo.description" maxlength="100" />
+									<div ng-messages="profileSettingsForm.description.$error" role="alert"   >
+										<div ng-message-exp="['required']">
+											{{ 'requiredField' | translate }}
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label class="text-white" >{{ 'email' | translate }}</label>
+									<input class="text-white" type="email" name="email" ng-model="$root.userinfo.email" ng-disabled="true"/>
+								</md-input-container>
+							</div>
+							<div class="col-md-3"></div>	
+					  </div>
+					  <div class="row">
+						<div class="col-md-12">
+							<div layout="row" layout-align="center center">
+								<button type="submit"  ng-disabled="profileSettingsForm.$invalid"  ><span>{{ 'save' | translate }}</span></button>	
+							</div> 
+						</div>	
+					</div>	
+					<div class="row">
+						<div class="col-md-12"> <br/>  </div>
+					</div>	
+				</div>	
+			</form>
+		</md-tab>
+		<md-tab label="{{ 'security' | translate }}">
+				<form name="securityForm">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12"> <br/>  </div>
+						</div>	
+						<div class="row">
+							<div class="col-md-3"></div>	
+							<div class="col-md-6">
+								<md-input-container class="md-block">
+									<label ng-bind-html =" 'currentPassword' | translate"   ></label>
+									<input required type="password" name='current' ng-model="security.current" maxlength="50"  />
+									<div ng-messages="securityForm.current.$error" role="alert"   >
+										<div ng-message-exp="['required', 'maxlength']" ng-bind-html="'login_err_pass_1' | translate "   >
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label ng-bind-html =" 'newPassword' | translate"   ></label>
+									<input required type="password" name='new' ng-model="security.new" maxlength="50"  />
+									<div ng-messages="securityForm.new.$error" role="alert">
+										<div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate "   >
+										</div>
+									</div>
+								</md-input-container>
+							</div>
+							<div class="col-md-3"></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div layout="row" layout-align="center center">
+									<button type="submit"  ng-disabled="profileSettingsForm.$invalid"  ><span>{{ 'save' | translate }}</span></button>	
+								</div> 
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-md-12"> <br/>  </div>
+						</div>	
+
+					</div>			
+			</form>
+		</md-tab>
+    </md-tabs>
+	
+</md-card>

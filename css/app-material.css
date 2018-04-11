@@ -29,8 +29,16 @@ md-card.md-default-theme, md-card {
     background-color: #011021!important;
 }
 md-menu-content.md-default-theme, md-menu-content {
-    background-color: rgb(87, 250, 58) !important;
+    background-color: #061E2F !important;
 }
+md-menu-item > .md-button span {
+    color: #fff!important;
+}
+md-menu-content {
+    max-height: 614px!important;
+}
+
+
 .md-button.md-icon-button {
     width: 100% !important;
     color: #fff!important;
@@ -92,4 +100,34 @@ md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-ico
   md-toolbar.md-default-theme.md-hue-3:not(.md-menu-toolbar), md-toolbar.md-hue-3:not(.md-menu-toolbar) {
     background-color: rgb(245, 244, 238);
     color: rgba(0,0,0,0.87);
+}
+
+md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+    color: rgb(245, 244, 238);
+}
+md-tabs.md-default-theme .md-tab, md-tabs .md-tab {
+    color: rgba(238, 238, 238, 0.534);
+}
+
+
+md-tabs-content-wrapper{
+    background-color: #061E2F !important;
+}
+md-tab-content > div{
+    background-color: #061E2F !important;
+}
+
+md-content{
+    background-color: #061E2F !important;
+}
+
+md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    border-color: rgb(245, 244, 238);
+}
+
+[disabled] md-input-container.md-default-theme .md-input, [disabled] md-input-container .md-input, md-input-container.md-default-theme .md-input[disabled], md-input-container .md-input[disabled] {
+    border-bottom-color: transparent;
+    color: rgba(0,0,0,0.38);
+    background-image: linear-gradient(90deg,#eeebef 0,rgba(0,0,0,0.38) 33%,transparent 0);
+    background-image: -ms-linear-gradient(left,transparent 0,rgba(0,0,0,0.38) 100%);
 }

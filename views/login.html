@@ -25,11 +25,10 @@
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label>{{ 'field_pass' | translate }}</label>
+                            <label ng-bind-html =" 'field_pass' | translate" ></label>
                             <input required type="password" name='pass' ng-model="pass" maxlength="60"  />
                             <div ng-messages="loginForm.pass.$error" role="alert">
-                                <div ng-message-exp="['required', 'maxlength']">
-                                    {{ 'login_err_pass_1' | translate }}
+                                <div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate " >
                                 </div>
                                 <div ng-show="loginFailed" >
                                     {{ deserr }}
@@ -37,10 +36,18 @@
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <md-checkbox name="remember" id="remember" >
-                                {{ 'loginremember' | translate }}
-                            </md-checkbox>
-                            <a class="pull-xs-right" href="javascript:void(0)">{{ 'olvidopss1' | translate }} </a>
+                            <div class="col-lg-6">
+                                <md-checkbox name="remember" id="remember" aria-label="remenber-label"  >
+                                    <span ng-bind-html="'loginremember' | translate" > </span>  
+                                </md-checkbox> 
+                            </div>
+                            <div class="col-lg-6 text-right"> 
+                                <a class="text-right" href="javascript:void(0)">
+                                    <span ng-bind-html="'olvidopss1' | translate" ></span>  
+                                </a>
+                            </div>
+                            
+                            
                         </md-input-container>
                         <div layout="row" layout-align="center center">
                             <button type="submit" ><span>{{ 'login' | translate }}</span></button>	
