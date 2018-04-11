@@ -12,10 +12,13 @@ button:hover span {
   color: #fff;
 }
 
+.flag-wrapper{
+    height: 48px;
+    width: 48px;
+}
 .logo-sm {
       height: 48px;
       width: 48px;
-      /*position: relative;*/
       top: -3px;
 }
 .text-error{

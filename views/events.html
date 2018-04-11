@@ -9,7 +9,7 @@
     </div>
     <div class="" ng-repeat="evento in ls_events"  >
             <div ng-show="evento.competitions.length>0 " class="content-main area">
-                <h2 class="area-titulo text-center" ng-bind="evento.description" > </h2>		
+                <h2 class="area-titulo text-center" ng-bind="evento.description" > </h2>	
             </div>
             <div class=""  ng-repeat="comp in evento.competitions"  >
                     <div class="col-lg-12 content-title content-title-country"  ng-show="comp.journeys.length>0 " >
@@ -21,6 +21,7 @@
                     <div class=""  ng-repeat="jorn in comp.journeys" >	
                         <div class="col-lg-12 content-title-jornada cell"  ng-show="jorn.matches.length>0 " >
                             <h2 class="" ng-bind="jorn.description" ></h2>
+                            
                         </div>
                         <div class="col-lg-12 content-text"  ng-repeat="mat in jorn.matches"  >
                             <div class="col-lg-2 " >  {{mat.start | amUtc | amDateFormat:'DD MMMM HH:mm'}}   </div>
