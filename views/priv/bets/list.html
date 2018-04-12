@@ -15,24 +15,22 @@
 			<table md-table ng-model="selected" md-progress="promise" >
 				<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
 					<tr md-row>
-						<th width="10%" md-column md-order-by="typebet_id"><span>{{ 'field_typebet' | translate }}</span></th>
 						<th width="20%" md-column md-order-by="created_at"><span>{{ 'field_date' | translate }}</span></th>
 						<th width="10%" md-column md-order-by="statusbet_id"><span>{{ 'field_status' | translate }}</span></th>
-						<th width="20%" ><span>{{ 'field_description' | translate }}</span></th>
-						<th width="15%"  class="text-right"   md-column md-order-by="amount"><span class="text-right" >{{ 'field_amount' | translate }}</span></th>
+						<th width="30%" ><span>{{ 'field_description' | translate }}</span></th>
+						<th width="10%"  class="text-right"   md-column md-order-by="amount"><span class="text-right" >{{ 'field_amount' | translate }}</span></th>
 						<th width="10%"  class="text-right"   md-column md-order-by="cuota"><span class="text-right" >{{ 'field_cuota' | translate }}</span></th>
-						<th width="15%"  class="text-right" ><span class="text-right" >{{ 'field_return' | translate }}</span></th>
+						<th width="10%"  class="text-right" ><span class="text-right" >{{ 'field_return' | translate }}</span></th>
 					</tr>
 				</thead>
 				<tbody md-body>
 					<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
-						<td width="10%" md-cell>{{item.typebet.description }}</td>
 						<td width="20%" md-cell class="text-left"  > {{item.created_at | amUtc | amLocal | amDateFormat:'DD/MM/YYYY HH:mm'}} </td>
-						<td width="10%" md-cell>{{item.statusbet.description }}</td>
-						<td width="20%" md-cell>{{item.match.description }}</td>
-						<td width="15%" md-cell class="text-right"  >{{item.amount}}</td>
-						<td width="10%" md-cell class="text-right"  >{{item.cuota}}</td>
-						<td width="15%" md-cell class="text-right"  >{{item.amount * item.cuota  }}</td>
+						<td width="10%" md-cell>{{item.des_statusbet }}</td>
+						<td width="30%" md-cell>{{item.des_typebet }}-{{item.des_match }}</td>
+						<td width="10%" md-cell class="text-right"  >{{item.amount}} {{item.des_typecoin }} </td>
+						<td width="10%" md-cell class="text-right"  >{{item.cuota}} </td>
+						<td width="10%" md-cell class="text-right"  >{{item.amount * item.cuota  }} {{item.des_typecoin }} </td>
 					</tr>
 				</tbody>
 			</table>

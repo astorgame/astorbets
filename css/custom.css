@@ -590,6 +590,7 @@ md-menu-divider{
 
 .tag {
   color: #fff;
+  padding: 5px 5px 5px 5px ;
 }
 
 a.tag:focus, a.tag:hover {

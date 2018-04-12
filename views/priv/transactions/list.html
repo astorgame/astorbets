@@ -16,19 +16,18 @@
 				<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
 					<tr md-row>
 						<th width="20%" md-column md-order-by="created_at"><span>{{ 'field_date' | translate }}</span></th>
-						<th width="50%" md-column md-order-by="description"><span>{{ 'field_description' | translate }}</span></th>
-						<th width="10%"  class="text-right" md-column md-order-by="operation_id"><span> {{ 'field_operation' | translate }}  </span></th>
-						<th width="15%"  class="text-center"   md-column md-order-by="amount"><span class="text-right" > {{ 'field_amount' | translate }} </span></th>
-						<th width="5%" md-column md-order-by="typecoin_id"><span>{{ 'field_typecoin' | translate }}</span></th>
+						<th width="60%" md-column md-order-by="description"><span>{{ 'field_description' | translate }}</span></th>
+						<th width="20%"  class="text-right"   md-column md-order-by="amount"><span class="text-right" > {{ 'field_amount' | translate }} </span></th>
 					</tr>
 				</thead>
 				<tbody md-body>
 					<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
 						<td width="20%" md-cell class="text-left"  > {{item.created_at | amUtc | amLocal | amDateFormat:'DD/MM/YYYY HH:mm'}} </td>
-						<td width="50%" md-cell>{{item.description}}</td>
-						<td width="10%" md-cell class="text-center"  > <span class="tag {{item.operation.style }}" ng-bind-html="item.operation.description"  ></span></td>
-						<td width="15%" md-cell class="text-right"  > {{item.amount}}</td>
-						<td width="5%" md-cell><span>{{item.typecoin.acronym}}</span></td>
+						<td width="60%" md-cell>{{item.description}}</td>
+						<td width="20%" md-cell class="text-right"  > 
+							<span class="tag {{item.style }}"   >{{item.aos}} {{item.amount}} {{item.des_typecoin}}</span> 
+							<md-tooltip md-direction="bottom">{{item.des_operation}}</md-tooltip>
+						</td>
 					</tr>
 				</tbody>
 			</table>
