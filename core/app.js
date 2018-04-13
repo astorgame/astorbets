@@ -9,7 +9,8 @@ var app =angular.module('astorbetsApp', ['astorbetsApp.models',
         'pascalprecht.translate',
         'ngStorage',
         'md.data.table',
-        'angularMoment'
+        'angularMoment',
+        'monospaced.qrcode'
 ]);
 var appModels = angular.module('astorbetsApp.models', []);
 
@@ -20,6 +21,9 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
         $rootScope.view_bet="";
         $rootScope.view_play="";
         $rootScope.userinfo=null;
+        $rootScope.activeaddrx = "";
+        $rootScope.activetypec = "";
+        $rootScope.activewll = 0;
         
         $rootScope.isAuthenticated = function() {
             return $auth.isAuthenticated();
@@ -78,6 +82,16 @@ app.run(['$rootScope', '$timeout', '$location','$auth', '$localStorage','$transl
         $rootScope.showMyBets = function() {
             $rootScope.actual_view="views/priv/bets/list.html";
         }; 
+        $rootScope.walletDeposit= function(adx,type) {
+            $rootScope.activeaddrx = adx;
+            $rootScope.activetypec = type;
+            $rootScope.actual_view="views/priv/wallets/abonar.html";
+        }; 
+        $rootScope.walletCashout = function(adx,wlid) {
+            $rootScope.activeaddrx = adx;
+            $rootScope.activewll = wlid;
+            $rootScope.actual_view="views/priv/wallets/retirar.html";
+        };  
     }
 ]);
 

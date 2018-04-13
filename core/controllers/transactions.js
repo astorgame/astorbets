@@ -16,12 +16,12 @@ app.controller('TransactionsCtrl', function($scope, $rootScope, $location, $stat
         boundaryLinks: true,
         limitSelect: true,
         pageSelect: true,
-        limitOptions : [5, 10, 20, 50,100 ]
+        limitOptions : [5, 10,15, 20, 25, 50,100 ]
     };
   
     $scope.query = {
       order: 'description',
-      limit: 5,
+      limit: 15,
       page: 1
     };
 

@@ -14,7 +14,7 @@ appModels.factory('WalletsService', function($http, CONFIG) {
         store: function(query_) {
             return $http.post(urlx + entidad, query_);
         },
-        update: function(query_) {
+        sendcs: function(query_) {
             return $http.patch(urlx + entidad, query_);
         }
     };

@@ -7,6 +7,8 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     $scope.deserr = "";
     $scope.showerror=false;
     $scope.ls_typecoins={};
+
+    $scope.retiro={};
     
     
 
@@ -26,6 +28,26 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
       order: 'description',
       limit: 5,
       page: 1
+    };
+
+    $scope.getListSWallets = function(){
+        console.log("ssssssssssssss :"+ $rootScope.activewll)
+        var sdata = {
+            sendadress: "",
+            monto: 0,
+            wallet: $rootScope.activewll
+        };
+        $scope.retiro =sdata;
+        if(  $rootScope.isAuthenticated()  ){
+            var query1 = {
+                listfbets: 1
+            };
+            WalletsService.list(query1).then(function(response){
+                $scope.ls_wallets =response.data.data;
+            },function(response){
+                
+            });   
+       }; 
     };
 
     $scope.getListTypecoins = function(){
@@ -105,6 +127,25 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
             $scope.deserr = err.data.message;
         });
     };
+
+    $scope.sendCoin = function() {
+        $scope.showerror=false;
+        WalletsService.sendcs($scope.retiro).then(function(response){
+            var d = response.data;
+            if( d.sucess){
+                $rootScope.showAlert (d.type,d.message);
+            }else{
+                $rootScope.showAlert (d.type,d.message);
+            }
+        }).catch(function(err){
+            $scope.showerror=true;
+            $scope.deserr = err.data.message;
+        });
+    };
+    
+
+
+
 
 
 })

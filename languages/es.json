@@ -84,6 +84,22 @@
        "field_return" : "Ganancia",
        "newPassword" : "Contraseña nueva",
        "currentPassword" : "Contraseña actual",
-       "security" : "Seguridad"
+       "security" : "Seguridad",
+       "field_abonarsaldo" : "Deposita y confirma tu abono",
+       "field_retirarsaldo" : "Retirar Saldo",
+       "field_retirarsaldo_terminos" : "Confirmo que el abono será realizado en ",
+       "field_retirarsaldo_terminos2" :" y asumo la responsabilidad de pérdida de cualquier otra moneda o token abonado a esta dirección por error.",
+       "field_ecaneaqr" : "Escanea el código para realizar el abono",
+       "field_ocopiaqr" : "O copia la siguiente dirección",
+       "field_copiar" : "Copiar",
+       "field_qretirar" : "¿Qué quieres retirar?",
+       "field_cuentoretirar" : "¿Cuánto quieres retirar?",
+       "field_direccionenvio" : "¿A que dirección quieres que enviemos tu dinero?",
+       "field_infoallok" : "Toda la información ingresada es correcta.",
+       "field_solretiro" : "Solicitar Retiro",
+       "field_solretiro_montorecibir" : "Monto a recibir",
+       "field_solretiro_costo" : "Costo de transacción",
+       "field_solretiro_dir" : "Dirección"
 
+       
   }

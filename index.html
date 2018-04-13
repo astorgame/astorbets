@@ -40,6 +40,8 @@
 	<script defer src="bower_components/jquery/dist/jquery.slim.min.js"></script>
 	<script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/qrcode-generator/js/qrcode.js"></script>
+	<script src="bower_components/qrcode-generator/js/qrcode_UTF8.js"></script>
 	
 	<!-- AngularJs componentes -->
 	<script src="bower_components/angular/angular.js"></script>
@@ -55,6 +57,8 @@
 	<script src="bower_components/ngstorage/ngStorage.min.js"></script>
 	<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 	<script src="bower_components/angular-moment/angular-moment.min.js"></script>
+	<script src="bower_components/angular-qrcode/angular-qrcode.js"></script>
+
 
     <!-- Scripts App AngularJs  -->
 	<script src="core/app.js"></script>
@@ -228,7 +232,7 @@
 			<div ng-include="$root.view_bet" >  
 				<md-card ng-if="!isAuthenticated()" >
 					<div class="col-lg-12 content-title-jornada cell"  >
-						<h2 class="" >{{ 'tit_nosession' | translate }} </h2>
+						<h2 class="" ng-bind-html="'tit_nosession' | translate"   ></h2>
 					</div>
 				</md-card>
 			</div>

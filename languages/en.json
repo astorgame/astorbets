@@ -83,8 +83,20 @@
    "field_return" : "Return",
    "newPassword" : "New password",
    "currentPassword" : "Current password",
-   "security" : "Security"
+   "security" : "Security",
+   "field_abonarsaldo" : "Pay Balance",
+    "field_retirarsaldo" : "Withdraw Balance",
+    "field_retirarsaldo_terminos" : "I confirm that the payment will be made in BTC and I assume responsibility for the loss of any other currency or token paid to this address by mistake.",
+    "field_ecaneaqr" : "Scan the code to make the payment",
+    "field_ocopiaqr" : "Or copy the following address",
+    "field_copiar" : "Copy",
+    "field_qretirar" : "What do you want to remove ?",
+    "field_cuentoretirar" : "How much you want to retire?",
+    "field_direccionenvio" : "To which address do you want us to send your money?",
+    "field_infoallok" : "All the information entered is correct.",
+    "field_solretiro" : "Request Withdrawal",
+    "field_solretiro_montorecibir" : "Amount to receive",
+    "field_solretiro_costo" : "Transaction cost",
+    "field_solretiro_dir" : "Address"
 
-  
-  
   }

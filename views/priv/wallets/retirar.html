@@ -1,0 +1,62 @@
+<md-card ng-controller="WalletsCtrl"  ng-init="getListSWallets()"  >
+	<md-toolbar class="md-table-toolbar md-default">
+		<div class="md-toolbar-tools">
+			<span> {{ 'field_retirarsaldo' | translate }}</span>
+		</div>
+	</md-toolbar>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12"> <br/>  </div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12 text-center"> 
+					<h5 ng-bind-html="'field_qretirar' | translate" >  </h5>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12">
+					<select class="bet-input-wallet"  name="wallet" ng-model="retiro.wallet"  required   >
+						<option ng-repeat="item in ls_wallets" value="{{item.id}}">
+							<span >{{item.id}} {{item.available}}  {{item.description}}  </span>  
+						</option>
+					</select>	
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12 text-center"> 
+					<h5 ng-bind-html="'field_cuentoretirar' | translate" >  </h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<input type="text" class="qradress" name='monto' ng-model="retiro.monto" />			
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12 text-center"> 
+					<h5 ng-bind-html="'field_direccionenvio' | translate" >  </h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<input type="text" class="qradress" name='sendadress' ng-model="retiro.sendadress" />			
+				</div>
+			</div>		
+			<div class="row">
+				<div class="col-md-12 text-left"> 
+					<h4 ng-bind-html="('field_solretiro_montorecibir' | translate )  + ': -'" >  </h4>
+					<h4 ng-bind-html="('field_solretiro_costo' | translate )  + ': -'  " >  </h4>
+					<h4 ng-bind-html="('field_solretiro_dir' | translate )  + ': '+ retiro.sendadress " >  </h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center ">
+					<button  ng-click="sendCoin()"   ><span> {{ 'field_solretiro' | translate }} </span></button>				
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12"> <br/>  </div>
+			</div>	
+	</div>
+	
+</md-card>

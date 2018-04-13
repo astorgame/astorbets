@@ -646,3 +646,10 @@ a.tag:focus, a.tag:hover {
   background-color: #f73737;
 }
 
+.qradress {
+     background-color: #113B25!important;
+     color: #FFF!important;
+     font-size: 0.85rem!important; 
+     padding: 6px 6px 6px 6px !important;
+     width: 100% !important;
+}

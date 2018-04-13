@@ -1,6 +1,6 @@
 <md-card ng-if="!isAuthenticated()" >
 		<div class="col-lg-12 content-title-jornada cell"  >
-					<h2 class="" >{{ 'tit_nosession' | translate }} </h2>
+			<h2 class=""  ng-bind-html="'tit_nosession' | translate"   ></h2>
 		</div>
 	</md-card>
 <md-card ng-if="isAuthenticated()"   >

@@ -16,6 +16,9 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
     $scope.showerror=false;
     $scope.deserr = "";
 
+    
+    
+
     $scope.getListSWallets = function(){
         if(  $rootScope.isAuthenticated()  ){
             var query1 = {
@@ -187,6 +190,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                     var d = response.data;
                     if( d.sucess){
                         $scope.getListBets();
+                        $rootScope.showAlert (d.type,d.message);
                     }else{
                         $rootScope.showAlert (d.type,d.message);
                     }

@@ -1,0 +1,47 @@
+<md-card   >
+	<md-toolbar class="md-table-toolbar md-default">
+		<div class="md-toolbar-tools">
+			<span> {{ 'field_abonarsaldo' | translate }}</span>
+		</div>
+	</md-toolbar>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12"> <br/>  </div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12"> 
+					<p ng-bind-html=" ( 'field_retirarsaldo_terminos' | translate )+ $root.activetypec + ( 'field_retirarsaldo_terminos2' | translate )  "    >  </p>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12 text-center"> 
+					<h5 ng-bind-html="'field_ecaneaqr' | translate" >  </h5>
+				</div>
+			</div>	
+			<div class="row">	
+				<div class="col-md-12 text-center">
+					<qrcode data="{{ $root.activeaddrx }}"  error-correction-level="Q" size="200" color="#fff" background="#000"   ></qrcode>			
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center "> 
+					<h5 ng-bind-html="'field_ocopiaqr' | translate" >  </h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<input readonly type="text" class="qradress" name='coqr' ng-model="$root.activeaddrx" />			
+				</div>
+				<div class="col-md-2">		
+					<button ><span> {{ 'field_copiar' | translate }} </span></button>		
+				</div>	
+				<div class="col-md-2">		
+					<button  ng-click="showWallet()"   ><span> {{ 'mnu_balance' | translate }} </span></button>		
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12"> <br/>  </div>
+			</div>	
+	</div>
+	
+</md-card>

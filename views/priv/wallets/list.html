@@ -32,23 +32,27 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12" >
-										<span>{{item.des_typecoin}}</span>
+									<span>{{item.des_typecoin}}</span>
 								</div>	
 							</div>	
 						</td>
 						<td width="35%" md-cell>{{item.address}}</td>
 						<td width="15%" md-cell class="text-right"  >{{item.total}}</td>
 						<td width="15%" md-cell class="text-right"  >{{item.available}}</td>
-						<td width="15%" md-cell class="actions text-center" >
-							<a ng-click="walletDeposit($event, item.id)">
+						<td width="15%" md-cell class="actions text-center"   ng-if="item.typecoin_id >1"  >
+							<a ng-click="walletDeposit(item.address, item.acronym )">
 								<i class="fas fa-cart-plus"></i>
 								<md-tooltip md-direction="bottom">{{ 'field_depositar' | translate }}</md-tooltip>
 							</a> 
-							<a ng-click="walletCashout($event, item.id)">
+							<a ng-click="walletCashout(item.address,item.id )">
 								<i class="fas fa-paper-plane"></i>
 								<md-tooltip md-direction="bottom">{{ 'field_sacar' | translate }}</md-tooltip>
 							</a>  	
 						</td>
+						 <td width="15%" md-cell class="actions text-center"   ng-if="item.typecoin_id==1"  >
+							<span> Not Available</span>
+						</td>
+
 					</tr>
 				</tbody>
 			</table>
