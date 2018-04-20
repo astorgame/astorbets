@@ -9,27 +9,22 @@
           </div>
           <div class="topbcgrd_login-img"   >
               <div class="row topbcgrd_login-content">
-                   <div class="col-lg-3"> </div>
+                  <div class="col-lg-3"> </div>
                   <div class="col-lg-6"> 
                    <form name="loginForm" role="form" class="form-horizontal"  ng-submit="login()" >
                         <md-input-container class="md-block">
-                            <label>{{ 'field_user' | translate }}</label>
+                            <label  ng-bind-html="'field_user' | translate " ></label>
                             <input required type="email" name="user" ng-model="user" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
                             <div ng-messages="loginForm.user.$error" role="alert">
-                                <div ng-message-exp="['required']">
-                                    {{ 'login_err_email_1' | translate }}
-                                </div>
-                                <div ng-message-exp="['maxlength', 'pattern']">
-                                    {{ 'login_err_email_2' | translate }}
-                                </div>
+                                <div ng-message-exp="['required']"   ng-bind-html="'login_err_email_1' | translate " ></div>
+                                <div ng-message-exp="['maxlength', 'pattern']"  ng-bind-html="'login_err_email_2' | translate " ></div>
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block">
                             <label ng-bind-html =" 'field_pass' | translate" ></label>
                             <input required type="password" name='pass' ng-model="pass" maxlength="60"  />
                             <div ng-messages="loginForm.pass.$error" role="alert">
-                                <div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate " >
-                                </div>
+                                <div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate " ></div>
                                 <div ng-show="loginFailed" >
                                     {{ deserr }}
                                 </div>
@@ -46,11 +41,9 @@
                                     <span ng-bind-html="'olvidopss1' | translate" ></span>  
                                 </a>
                             </div>
-                            
-                            
                         </md-input-container>
                         <div layout="row" layout-align="center center">
-                            <button type="submit" ><span>{{ 'login' | translate }}</span></button>	
+                            <button type="submit" ><span ng-bind-html="'login' | translate"></span></button>	
                         </div>   
                   </form>
                 </div>  

@@ -36,9 +36,9 @@
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
 	<link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css" />
 	<!-- Js componentes -->
-	<script defer src="plugins/fontawesome-all.js"></script>
-	<script defer src="bower_components/jquery/dist/jquery.slim.min.js"></script>
-	<script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="plugins/fontawesome-all.js"></script>
+	<script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/moment/min/moment.min.js"></script>
 	<script src="bower_components/qrcode-generator/js/qrcode.js"></script>
 	<script src="bower_components/qrcode-generator/js/qrcode_UTF8.js"></script>
@@ -86,7 +86,7 @@
 </head>
 
 <body ng-controller="homeCtrl" >
-    <header>
+    <header id="header_doc" class="hidden" >
 		<div class="container-fluid"  ng-init="getListTypegames()" >
 			<ul class="fl_lt">
 				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
@@ -115,8 +115,8 @@
 								  </md-menu-content>
 					</md-menu>
 				</li>
-				<li><button class="btn-lgn" ng-click="showLogin()"  ><span>  {{ 'login' | translate }} </span></button></li>
-				<li><button ng-click="showSignup()" ><span>{{ 'singup' | translate }} </span></button></li>
+				<li><button class="btn-lgn" ng-click="showLogin()"  ><span ng-bind-html="'login' | translate"   >  </span></button></li>
+				<li><button ng-click="showSignup()" ><span  ng-bind-html="'singup' | translate"   ></span></button></li>
 			</ul>
 			<ul class="fl_rt" ng-if="isAuthenticated()"  >
 				<li>
@@ -158,14 +158,14 @@
 										<div class="text-right">
 											<div class="row">
 												<div class="col-sm-12 text-right">
-													<h5 class="font-size-14 font-white">{{ $root.userinfo.description }} </h5>
-													<small class="font-size-13 font-white">{{ $root.userinfo.email }}   </small>
+													<h5 class="font-size-14 font-white" ng-bind-html="$root.userinfo.description"   > </h5>
+													<small class="font-size-13 font-white" ng-bind-html="$root.userinfo.email"   ></small>
 												</div>	
 											</div>	
 											<div class="row">
 												<div class="col-sm-12 text-right">
 													<br/>
-												   <button ng-click="showProfile()"    ><span>  {{ 'profilee' | translate }} </span></button>
+												   <button ng-click="showProfile()"    ><span ng-bind-html="'profilee' | translate"  ></span></button>
 												</div>  
 											</div>
 										</div>
@@ -211,12 +211,12 @@
 	<div class="content-wrap" ng-init="getListGames(1)"  >
 		<div class="sidebar-menu col-lg-2">
 			<ul>
-				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-calendar-alt"></i>{{ 'mnu_calendario' | translate }}</span></a></li>
-				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i> {{ 'mnu_estadisticas' | translate }}</span></a></li>
+				<li><a href="javascript:void(0)"><span> <i class='icono-2x mar-2x fas fa-calendar-alt'></i> <span ng-bind-html="'mnu_calendario' | translate "  > </span></span></a></li>
+				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i><span ng-bind-html="'mnu_estadisticas' | translate "  > </span></span></a></li>
 				<li ng-repeat="item in ls_games"  >
-					<a href="javascript:void(0)" class=""  ng-click="getGame(item)"  >
+					<a href="javascript:void(0)" class=""  ng-click="getGame(item,1)"  >
 						<span > 
-							<i class="icono-2x iconsport {{ item.icono }}"></i> {{ item.description }} 
+							<i class="icono-2x iconsport {{ item.icono }}"></i> <span ng-bind-html="item.description"  > </span>
 						</span>
 					</a>
 				</li>
@@ -227,8 +227,8 @@
 	
 			</div>	
 		</div>
-		<div class="sidebar-bet col-lg-2"  >
-			<h2>{{ 'mnu_bets' | translate }}</h2>	
+		<div class="sidebar-bet col-lg-2"   >
+			<h2 ng-bind-html="'mnu_bets' | translate" ></h2>	
 			<div ng-include="$root.view_bet" >  
 				<md-card ng-if="!isAuthenticated()" >
 					<div class="col-lg-12 content-title-jornada cell"  >
@@ -237,12 +237,12 @@
 				</md-card>
 			</div>
 			<md-card ng-if="isAuthenticated()" >
-				<div class="row bet-title-rowbets"  ng-repeat="itm in ls_bets"  >	
+				<div class="row bet-title-rowbets"  ng-repeat="itm in ls_bets" id="side_bets" class="hidden" >	
 					<div class="col-lg-10 text-left"  > <span ng-bind="itm.tit"  >  </span> </div>
 					<div class="col-lg-2 text-right"  > 
 							<a ng-click="cancel_bet($event, itm.id)" class="puntero"   >
 								<i class="icono-2x fas fa-times-circle text-red"></i>
-								<md-tooltip  md-direction="bottom">{{ 'bet_cancel' | translate }}</md-tooltip>
+								<md-tooltip  md-direction="bottom" ng-bind-html="'bet_cancel' | translate"   ></md-tooltip>
 							</a>    
 					</div>
 					<div class="col-lg-3"  > <span ng-bind='itm.des_typebet + ":" '  >  </span> </div>
@@ -258,8 +258,17 @@
 				
 			</div>	
 		</div>
-    </div>
+	</div>
+	
+	<script > 
+		 $(function() {
+            console.log( "document.ready..." );
+			$('#header_doc').removeClass("hidden");
+			$('#side_bets').removeClass("hidden");
+			
 
+        });
+	</script>
 </body>
 </html>
 

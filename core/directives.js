@@ -26,3 +26,4 @@ app.directive('imgPreload', ['$rootScope', function($rootScope) {
       }
     };
 }]);
+

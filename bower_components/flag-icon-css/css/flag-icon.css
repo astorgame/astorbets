@@ -1554,3 +1554,8 @@
 .flag-icon-un.flag-icon-squared {
   background-image: url(../flags/1x1/un.svg);
 }
+
+
+.flag-icon-barcelona {
+  background-image: url(../../../img/clubs/barcelona.svg);
+}

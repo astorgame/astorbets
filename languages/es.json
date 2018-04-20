@@ -61,6 +61,7 @@
        "mnu_bets" : "Apuestas",
        "mnu_inplay" : "Jugando",
        "tit_eventosdia" : "EVENTOS DEL DIA",
+       "tit_eventostodos" : "TODOS LOS EVENTOS",
        "tit_hoy" : "Hoy",
        "tit_todos" : "Todos",
        "field_capuesta" : "Colocar apuesta",

@@ -77,7 +77,9 @@ header .btn-lgn:hover span {color: #1e1e1e;}
     line-height: 35px;
     padding-left: 8px;
     vertical-align: middle;
-    width: 100%;}
+    /*width: 100%;*/
+
+}
 
 .content-wrap .sidebar-menu li span h2{
         display: inline-block;

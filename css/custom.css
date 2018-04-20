@@ -1,10 +1,10 @@
 a {
-  color: #fff!important;
+  color: #fff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #5BFF3B!important;
+  color: #5BFF3B;
   text-decoration: none;
 }
 .puntero {
@@ -653,3 +653,50 @@ a.tag:focus, a.tag:hover {
      padding: 6px 6px 6px 6px !important;
      width: 100% !important;
 }
+
+
+.btn-selected {
+  color: #232020;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-selected span {
+  color: #232020;
+}
+.btn-selected:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+
+
+.btn-noselected {
+    color: #929292;
+    background-color:transparent!important;
+    border-color: #007bff;
+}
+.btn-noselected span {
+    color: #929292;
+}
+.btn-noselected:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.tit-events:hover {
+  color: #232020!important;
+  text-decoration: underline!important;
+}
+.tit-events:hover {
+  color: #0056b3!important;
+  text-decoration: none!important;
+}
+
+.content-text .cell:hover {
+  background-color: #5BFF3B!important;
+  color: #1e1e1e!important;
+  font-family: ProximaNova-Bold!important;
+}
+

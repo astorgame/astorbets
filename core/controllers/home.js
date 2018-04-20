@@ -16,9 +16,12 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
     $scope.showerror=false;
     $scope.deserr = "";
 
-    
-    
+    $scope.record_selected={};
 
+    $scope.class_filter_by_today="btn-noselected";
+    $scope.class_filter_by_all="btn-selected";
+    $scope.tit_filter_sel=$filter('translate')('tit_eventosdia');
+    
     $scope.getListSWallets = function(){
         if(  $rootScope.isAuthenticated()  ){
             var query1 = {
@@ -107,17 +110,19 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             };
             GamesService.list(querygames).then(function(response){
                 $scope.ls_games =response.data.data;
-                $scope.getGame($scope.ls_games[0]);
+                $scope.getGame($scope.ls_games[0],1);
             },function(response){
                 
             });   
         };
         
-        $scope.getGame  = function(item_sel) {
+        $scope.getGame  = function(item_sel,type) {
             $rootScope.actual_view="views/events.html";
-            $rootScope.view_play="views/live.html";
+            //$rootScope.view_play="views/live.html";
+            console.log(item_sel );
             $scope.record_selected = item_sel;
-            var queryareas = {
+            
+           /* var queryareas = {
                 filterby: 'game_id',
                 filterid: item_sel.id,
                 order: 'order_view',
@@ -128,10 +133,21 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
                 $scope.ls_areas =response.data.data;
             },function(response){
                 
-            });   
+            });*/
+            var flimit =  'today';
+            $scope.class_filter_by_today="btn-selected";
+            $scope.class_filter_by_all="btn-noselected";
+            $scope.tit_filter_sel=$filter('translate')('tit_eventosdia');
+            if(type==2 ){
+                flimit =  'all';
+                $scope.class_filter_by_today="btn-noselected";
+                $scope.class_filter_by_all="btn-selected";
+                $scope.tit_filter_sel= $filter('translate')('tit_eventostodos');
+            }    
            var query = {
                 filterby: 'game_id',
                 filterid: item_sel.id,
+                filtertype: flimit,
                 order: 'order_view',
                 orderdir: 'asc',
                 list: 1,
@@ -140,7 +156,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location, $stateParams,
             };
             AreasService.list(query).then(function(response){
                  $scope.ls_events =response.data.data;
-                 $scope.areascount = response.data.total;
+                // $scope.areascount = response.data.total;
             },function(response){
                  
             }); 
