@@ -6,6 +6,15 @@ app.config(['$authProvider','CONFIG',function($authProvider,CONFIG) {
         $authProvider.unlinkUrl = 'auth/invalidate';
         $authProvider.tokenName = 'token';
         $authProvider.storageType = 'localStorage';
+
+        $authProvider.facebook({
+            name: 'facebook',
+            clientId: CONFIG.APP_FB_ID,
+            redirectUri: CONFIG.URL_FB,
+        });
+        $authProvider.twitter({
+            url: '/auth/twitter'
+        });
    }    
 ]);
 
@@ -17,7 +26,7 @@ app.config(['$httpProvider','CONFIG',function($httpProvider,CONFIG){
                     config.headers['id-app'] = CONFIG.APP_ID; 
                     config.headers['type-app'] = "web-bets"; 
                     config.headers['time-app'] = new Date().toLocaleString();
-                    config.headers['timezone-app'] = (new Date().getTimezoneOffset()) ;
+                    config.headers['timezone-app'] = (new Date().getTimezoneOffset());
                     return config;
                 },
                 requestError: function(config) {
@@ -32,15 +41,17 @@ app.config(['$httpProvider','CONFIG',function($httpProvider,CONFIG){
             };
         }]);
 }]);
-
-
-
-
 app.config(function($translateProvider) {
     $translateProvider.useSanitizeValueStrategy('sanitize');
     $translateProvider.useStaticFilesLoader({
         prefix: 'languages/',
         suffix: '.json'
     });
-     $translateProvider.preferredLanguage('es');
+     $translateProvider.preferredLanguage('en');
 });
+
+app.config(function($mdIconProvider) {
+    $mdIconProvider
+        .defaultFontSet('FontAwesome')
+        .fontSet('fa', 'FontAwesome');
+})

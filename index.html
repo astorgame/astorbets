@@ -76,6 +76,7 @@
 	<script src="core/models/typecoins.js"></script>
 	<script src="core/models/bets.js"></script>
 	<script src="core/models/transactions.js"></script>
+	<script src="core/models/limits.js"></script>
 	<!-- Core  controllers -->
 	<script src="core/controllers/home.js"></script>
 	<script src="core/controllers/login.js"></script>
@@ -83,36 +84,40 @@
 	<script src="core/controllers/wallets.js"></script>
 	<script src="core/controllers/bets.js"></script>
 	<script src="core/controllers/transactions.js"></script>
+	<script src="core/controllers/limits.js"></script>
 </head>
 
-<body ng-controller="homeCtrl" >
+<body ng-controller="homeCtrl" ng-init="getInitvals()" >
     <header id="header_doc" class="hidden" >
 		<div class="container-fluid"  ng-init="getListTypegames()" >
 			<ul class="fl_lt">
-				<li class="logo" ><a href="javascript:void(0)"><img src="img/logo.png" class="logo-sm" alt="logo"></a></li>
-				<li ng-repeat="item in ls_typegames"  > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
+				<li class="logo" ><img src="img/logo.png" class="logo-sm" alt="logo"></li>
+				<li ng-repeat="item in ls_typegames" ng-if="!pb_c1" > <a href="javascript:void(0)" ng-click="getListGames(item.id)"  ><i class="iconsport {{ item.icono }}"></i><h1 ng-bind="item.description" ></h1> </a></li>
+				<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_c1" >
+					<md-progress-circular md-mode="indeterminate"   ></md-progress-circular>
+				</div>
 			</ul>
 			<ul class="fl_rt" ng-if="!isAuthenticated()"  >
 				<li>
 					<md-menu md-position-mode="target-right bottom"   >
-								  <md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="language-menu"  >
-									  <span class="fas fa-flag "> </span>
-								  </md-button>
-								  <md-menu-content width="3">
-									  <md-menu-item>
-										  <md-button ng-click="changeLanguage('en')">
-											  <i class="flag-sm flag-sm-GB"></i>
-											  <span>English</span>
-										  </md-button>
-									  </md-menu-item>
-									  <md-menu-divider></md-menu-divider>
-									  <md-menu-item>
-										  <md-button  ng-click="changeLanguage('es')">
-											  <i class="flag-sm flag-sm-ES"></i>
-											  <span>Español </span>
-										  </md-button>
-									  </md-menu-item>
-								  </md-menu-content>
+						<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="language-menu"  >
+							<span class="fas fa-flag "> </span>
+						</md-button>
+						<md-menu-content width="3">
+							<md-menu-item>
+								<md-button ng-click="changeLanguage('en')">
+									<i class="flag-sm flag-sm-GB"></i>
+									<span>English</span>
+								</md-button>
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+								<md-button  ng-click="changeLanguage('es')">
+									<i class="flag-sm flag-sm-ES"></i>
+									<span>Español </span>
+								</md-button>
+							</md-menu-item>
+						</md-menu-content>
 					</md-menu>
 				</li>
 				<li><button class="btn-lgn" ng-click="showLogin()"  ><span ng-bind-html="'login' | translate"   >  </span></button></li>
@@ -121,33 +126,25 @@
 			<ul class="fl_rt" ng-if="isAuthenticated()"  >
 				<li>
 					<md-menu md-position-mode="target-right bottom"  >
-								  <md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="language-menu"  >
-									  <span class="fas fa-flag "> </span>
-								  </md-button>
-								  <md-menu-content width="3">
-									  <md-menu-item>
-										  <md-button ng-click="changeLanguage('en')">
-											  <i class="flag-sm flag-sm-GB"></i>
-											  <span>English</span>
-										  </md-button>
-									  </md-menu-item>
-									  <md-menu-divider></md-menu-divider>
-									  <md-menu-item>
-										  <md-button  ng-click="changeLanguage('es')">
-											  <i class="flag-sm flag-sm-ES"></i>
-											  <span>Español </span>
-										  </md-button>
-									  </md-menu-item>
-								  </md-menu-content>
+						<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)"  aria-label="wallet-menu"  >
+							{{ $root.active_wallet.available}} {{$root.active_wallet.description }}	
+						</md-button>
+						<md-menu-content width="3">
+							<md-menu-item ng-repeat="item in ls_wallets" >
+								<md-button ng-click="changeActiveWallet(item)">
+									<span>{{item.available}}  {{item.description}} </span>
+								</md-button>
+							</md-menu-item>
+						</md-menu-content>
 					</md-menu>
 				</li>	
 				<li>
-				<md-menu md-position-mode="target-right bottom" >
+				  <md-menu md-position-mode="target-right bottom" >
 					<div  class="circular"  ng-mouseenter="openMenu($mdMenu, $event)" >
 						<img  img-preload ng-src="{{ $root.userinfo.image }}" class="topnav-img" id="circsm1" >
 					</div>
 					<md-menu-content width="5"  class="md-menu-content-cerop"  ng-mouseleave="$mdMenu.close()"  aria-label="profile-menu"  >
-							<md-subheader class="md-no-sticky account-header">
+						<md-subheader class="md-no-sticky account-header">
 								<div class="row">
 									<div class="col-md-3">
 										<div  class="circular2"  >
@@ -171,35 +168,43 @@
 										</div>
 									</div>
 								</div>
-							</md-subheader>
-							<md-menu-item>
-								<md-button ng-click="showWallet()"  >
-									<span>  
-									   <i class="text-white fas fa-hand-holding-usd" aria-hidden="true"></i>  {{ 'mnu_balance' | translate }}
-									</span>	
-								</md-button>
-							</md-menu-item>
-							<md-menu-item>
-								<md-button ng-click="showTransactions()"  >
-									<span>  
-										<i class="text-white fas fa-cogs" aria-hidden="true"></i>  {{ 'mnu_transacciones' | translate }}
-									</span>	
-								</md-button>
-							</md-menu-item>
-							<md-menu-divider></md-menu-divider>
-							<md-menu-item>
-								<md-button ng-click="showMyBets()"  >
-									<span>  
-										<i class="text-white fas fa-trophy" aria-hidden="true"></i>  {{ 'mnu_mybets' | translate }}
-									</span>	
-								</md-button>
-							</md-menu-item>
-							<md-menu-divider></md-menu-divider>
-							<md-menu-item>
-								<md-button  ng-click="cerrarSesion()" >
-									<i class="text-white fas fa-sign-out-alt" aria-hidden="true"></i> <span class="md-item-title-sm" >  {{ 'logout' | translate }}  </span>  
-								</md-button>
-							</md-menu-item>
+						</md-subheader>
+						<md-menu-item>
+							<md-button ng-click="showWallet()"  >
+								<span>  
+									<i class="text-white fas fa-hand-holding-usd" aria-hidden="true"></i>  {{ 'mnu_balance' | translate }}
+								</span>	
+							</md-button>
+						</md-menu-item>
+						<md-menu-item>
+							<md-button ng-click="showTransactions()"  >
+								<span>  
+									<i class="text-white fas fa-money-check-alt" aria-hidden="true"></i>  {{ 'mnu_transacciones' | translate }}
+								</span>	
+							</md-button>
+						</md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							<md-button ng-click="showMyBets()"  >
+								<span>  
+									<i class="text-white fas fa-trophy" aria-hidden="true"></i>  {{ 'mnu_mybets' | translate }}
+								</span>	
+							</md-button>
+						</md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							<md-button ng-click="showGamblingLimits()"  >
+								<span>  
+									<i class="text-white fas fa-lock" aria-hidden="true"></i>  {{ 'mnu_gam_lim' | translate }}
+								</span>	
+							</md-button>
+					    </md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							<md-button  ng-click="cerrarSesion()" >
+								<i class="text-white fas fa-sign-out-alt" aria-hidden="true"></i> <span class="md-item-title-sm" >  {{ 'logout' | translate }}  </span>  
+							</md-button>
+						</md-menu-item>
 					 </md-menu-content>
 				   </md-menu>
 				</li>	
@@ -207,19 +212,20 @@
 			</ul>
 		</div>
 	</header>
-
 	<div class="content-wrap" ng-init="getListGames(1)"  >
 		<div class="sidebar-menu col-lg-2">
 			<ul>
-				<li><a href="javascript:void(0)"><span> <i class='icono-2x mar-2x fas fa-calendar-alt'></i> <span ng-bind-html="'mnu_calendario' | translate "  > </span></span></a></li>
-				<li><a href="javascript:void(0)"><span><i class="icono-2x mar-2x fas fa-newspaper"></i><span ng-bind-html="'mnu_estadisticas' | translate "  > </span></span></a></li>
-				<li ng-repeat="item in ls_games"  >
+				<li><a href="javascript:void(0)"><span> <i class='icono-2x mar-2x fas fa-calendar-alt'></i> <span ng-bind-html="'mnu_results' | translate "  > </span></span></a></li>
+				<li ng-repeat="item in ls_games" ng-if="!pb_c2" >
 					<a href="javascript:void(0)" class=""  ng-click="getGame(item,1)"  >
 						<span > 
 							<i class="icono-2x iconsport {{ item.icono }}"></i> <span ng-bind-html="item.description"  > </span>
 						</span>
 					</a>
 				</li>
+				<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_c2" >
+					<md-progress-circular md-mode="indeterminate"   ></md-progress-circular>
+				</div>
 			</ul>
 		</div>
 		<div class="col-lg-8"  >
@@ -227,15 +233,28 @@
 	
 			</div>	
 		</div>
-		<div class="sidebar-bet col-lg-2"   >
-			<h2 ng-bind-html="'mnu_bets' | translate" ></h2>	
-			<div ng-include="$root.view_bet" >  
-				<md-card ng-if="!isAuthenticated()" >
-					<div class="col-lg-12 content-title-jornada cell"  >
-						<h2 class="" ng-bind-html="'tit_nosession' | translate"   ></h2>
+		<div class="sidebar-bet col-lg-2"  ng-init="getInitvalsBets()"  >
+			<div class="row"  >
+				<div class="col-md-12"  >
+					<h2 ng-bind-html="'mnu_betstab' | translate" ></h2>	
+					<div ng-include="$root.view_bet" >  
+						
 					</div>
-				</md-card>
+				</div>	
 			</div>
+			<div class="row"  >
+				<div class="col-md-12 sep_1"  >	
+				</div>	
+			</div>
+			<div class="row"  >
+				<div class="col-md-12"  >
+					<h2 ng-bind-html="'mnu_inplay' | translate" ></h2>	
+					<div ng-include="$root.view_playnow" >  
+							
+					</div>
+				</div>	
+			</div>
+
 			<md-card ng-if="isAuthenticated()" >
 				<div class="row bet-title-rowbets"  ng-repeat="itm in ls_bets" id="side_bets" class="hidden" >	
 					<div class="col-lg-10 text-left"  > <span ng-bind="itm.tit"  >  </span> </div>
@@ -254,10 +273,8 @@
 					<hr class="hr-bets" />  	
 				</div>
 			</md-card>
-			<div ng-include="$root.view_play" >  
-				
-			</div>	
 		</div>
+
 	</div>
 	
 	<script > 

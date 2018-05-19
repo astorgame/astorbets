@@ -34,7 +34,7 @@ button:hover span {color: #929292;}
 ---------------------------------*/
 header {background-color: #011021; font-family: ProximaNova-Bold, Arial, sans-serif;}
 header ul {padding-top: 1rem; }
-header li {display: inline-block; padding-right: 1rem;}
+header li {display: inline-block; }
 header li a {font-size: 16px;}
 header li a:hover {color: #5BFF3B}
 
@@ -100,11 +100,13 @@ header .btn-lgn:hover span {color: #1e1e1e;}
 
 
 /* CENTRAL - MENU*/
-.content-wrap .content-main, .content-wrap .sidebar-bet {padding: .3rem 1rem; margin-top: 6px;}
+.content-wrap .content-main, .content-wrap .sidebar-bet {padding: .3rem 1rem; }
 .content-wrap .content-main h2, .content-wrap .sidebar-bet h2  {
     font-family: ProximaNova-Bold, Arial, sans-serif; 
     margin: 0; 
-    border-bottom: 1px solid #5BFF3B}
+    border-bottom: 1px solid #5BFF3B;
+    font-size: 1.11rem!important;
+}
 
 
 

@@ -1,6 +1,6 @@
 'use strict';
 app.controller('BetsCtrl', function($scope, $rootScope, $location, $stateParams, $timeout, $q , $auth, $mdDialog, BetsService ) {
-    
+    $scope.pb_loadtable=false;
     $scope.selected = [];
     $scope.showOptions = false;
     $scope.recordscount = 0;
@@ -27,10 +27,13 @@ app.controller('BetsCtrl', function($scope, $rootScope, $location, $stateParams,
 
 
     $scope.getList = function() {
+        $scope.pb_loadtable=true;
         BetsService.list($scope.query).then(function(data){
             $scope.list = data.data.data;
             $scope.recordscount = data.data.total;
+            $scope.pb_loadtable=false;
         }).catch(function(err){
+            $scope.pb_loadtable=false;
             $scope.list ={};
             $scope.showerror=true;
             $scope.deserr = err.data.message;
