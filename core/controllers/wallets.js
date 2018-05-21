@@ -1,6 +1,7 @@
 'use strict';
 app.controller('WalletsCtrl', function($scope, $rootScope, $location, $stateParams, $timeout, $q , $auth, $mdDialog, WalletsService, TypecoinsService  ) {
-
+    $scope.pb_loadtable=false;
+    $scope.pb_process=false;
     $scope.selected = [];
     $scope.showOptions = false;
     $scope.recordscount = 0;
@@ -31,7 +32,6 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.getListSWallets = function(){
-        console.log("ssssssssssssss :"+ $rootScope.activewll)
         var sdata = {
             sendadress: "",
             monto: 0,
@@ -64,11 +64,14 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.getList = function() {
+        $scope.pb_loadtable=true;
         $scope.getListTypecoins();
         WalletsService.list($scope.query).then(function(data){
             $scope.list = data.data.data;
             $scope.recordscount = data.data.total;
+            $scope.pb_loadtable=false;
         }).catch(function(err){
+            $scope.pb_loadtable=false;
             $scope.list ={};
             $scope.showerror=true;
             $scope.deserr = err.data.message;
@@ -92,6 +95,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
     };
 
     $scope.add = function(typeid){
+        $scope.pb_process=true;
         $scope.showerror=false;
         var datasend = {
             active: true,
@@ -100,6 +104,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
         $scope.newFailed=false;
         WalletsService.store(datasend).then(function(response){
             var d = response.data;
+            $scope.pb_process=false;
             if( d.sucess){
                 $scope.getList();
                 $rootScope.showAlert (d.type,d.message);
@@ -107,6 +112,7 @@ app.controller('WalletsCtrl', function($scope, $rootScope, $location, $statePara
                 $rootScope.showAlert (d.type,d.message);
             }
         }).catch(function(err){
+            $scope.pb_process=false;
             $scope.showerror=true;
             $scope.deserr = err.data.message;
             

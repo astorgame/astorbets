@@ -11,30 +11,24 @@
 				<i class="icono-1x fas fa-redo-alt"></i>
 			</button>
 		</div>
-		<div class="to-pdf" ng-show="list.length>0 "  >
+		<div class="to-pdf"   >
 			<table md-table ng-model="selected" md-progress="promise" >
 				<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
 					<tr md-row>
 						<th width="20%" md-column md-order-by="typecoin_id"><span>{{ 'field_typecoin' | translate }}</span></th>
 						<th width="35%" md-column md-order-by="address"><span>{{ 'field_address' | translate }}</span></th>
-						<th width="15%"  class="text-right" md-column md-order-by="total"><span>{{ 'field_total' | translate }}</span></th>
+						<th width="15%"  class="text-right"   md-column md-order-by="total"><span>{{ 'field_total' | translate }}</span></th>
 						<th width="15%"  class="text-right"   md-column md-order-by="available"><span class="text-right" >{{ 'field_available' | translate }}</span></th>
 						<th width="15%"  class="text-center"  md-column><span class="text-center" >{{ 'action' | translate }}</span></th>
 					</tr>
 				</thead>
 				<tbody md-body>
+					<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_loadtable" >
+						<md-progress-circular md-mode="indeterminate" ></md-progress-circular>
+					</div>
 					<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
-						<td width="20%" class="paddingY"  md-cell>
-							<div class="row">
-								<div class="col-md-12" >	
-									<img class="coin-wrapper"  ng-src="{{item.logo}}" alt="">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12" >
-									<span>{{item.des_typecoin}}</span>
-								</div>	
-							</div>	
+						<td width="20%"   md-cell>
+							<span>{{item.des_typecoin}}</span>
 						</td>
 						<td width="35%" md-cell>{{item.address}}</td>
 						<td width="15%" md-cell class="text-right"  >{{item.total}}</td>
@@ -52,7 +46,6 @@
 						 <td width="15%" md-cell class="actions text-center"   ng-if="item.typecoin_id==1"  >
 							<span> Not Available</span>
 						</td>
-
 					</tr>
 				</tbody>
 			</table>
@@ -61,7 +54,7 @@
 	<div class="container"  ng-show="ls_typecoins.length>0 " >
 		<div class="row">
 			<div class="col-md-4">
-				<md-menu md-position-mode="target-right bottom" >
+				<md-menu md-position-mode="target-right bottom" ng-if="!pb_process" >
 					<md-button class="md-icon-button dropdown-toggle notoggle font-link" ng-click="openMenu($mdMenu, $event)">
 						<i class="text-primary fas fa-dollar-sign"></i><span class="text-primary"> {{ 'field_addtypecoin' | translate }} </span>
 					</md-button>
@@ -75,6 +68,9 @@
 						
 					</md-menu-content>
 				</md-menu>
+				<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_process" >
+					<md-progress-circular md-mode="indeterminate" ></md-progress-circular>
+				</div>
 			</div>	
 			<div class="col-md-8">
 				<div ng-show="showerror"  >
