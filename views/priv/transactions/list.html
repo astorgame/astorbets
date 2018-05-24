@@ -11,7 +11,7 @@
 				<i class="icono-1x fas fa-redo-alt"></i>
 			</button>
 		</div>
-		<div class="to-pdf" ng-show="list.length>0 "  >
+		<div class="to-pdf"   >
 			<table md-table ng-model="selected" md-progress="promise" >
 				<thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="getList">
 					<tr md-row>
@@ -21,6 +21,9 @@
 					</tr>
 				</thead>
 				<tbody md-body>
+					<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_loadtable" >
+						<md-progress-circular md-mode="indeterminate" ></md-progress-circular>
+					</div>
 					<tr md-row md-select="item" md-select-id="id"  md-auto-select="options.autoSelect" ng-repeat="item in list | orderBy: query.order ">
 						<td width="20%" md-cell class="text-left"  > {{item.created_at | amUtc | amLocal | amDateFormat:'DD/MM/YYYY HH:mm'}} </td>
 						<td width="60%" md-cell>{{item.description}}</td>

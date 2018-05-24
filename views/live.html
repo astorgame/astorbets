@@ -1,8 +1,10 @@
-<br/>
-<hr  class="hr-line1" />
-<h2> {{ 'mnu_inplay' | translate }}</h2>	
 <md-card  >
-
-	<br/>
-	<hr  class="hr-line1" />
+	
 </md-card>
+<div class="row" ng-if="$root.isListEmpty($root.list_tmp_lives)" > 			
+    <div class="col-md-12 text-center">
+        <br/>
+        <span ng-bind-html="'tit_nobet_3' | translate"   >  </span>
+        <br/><br/>
+    </div>
+</div>

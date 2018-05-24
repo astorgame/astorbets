@@ -21,7 +21,7 @@
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label ng-bind-html="'field_user' | translate "  ></label>
+                            <label ng-bind-html="'field_email' | translate "  ></label>
                             <input required type="email" name="user" ng-model="user" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
                             <div ng-messages="loginForm.user.$error" role="alert">
                                 <div ng-message-exp="['required']" ng-bind-html="'login_err_email_1' | translate "  ></div>
@@ -34,24 +34,27 @@
                             <div ng-messages="loginForm.pass.$error" role="alert">
                                 <div ng-message-exp="['required', 'maxlength']"  ng-bind-html="'login_err_pass_1' | translate " ></div>
                                 <div ng-show="showerror" >
-                                    {{ deserr }}
+                                        {{ deserr }}
                                 </div>
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block">
                             <span class="" ng-bind-html="'aceptar_terminos' | translate "  ></span>
                         </md-input-container>
-                        <div layout="row" layout-align="center center">
+                        <div layout="row" layout-align="center center" ng-if="!pb_usr"  >
                             <button type="submit" ><span ng-bind-html="'register' | translate "   ></span></button>	
-                        </div>   
+                        </div> 
+                        <div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_usr" >
+                                <md-progress-circular md-mode="indeterminate"   ></md-progress-circular>
+                        </div>	
                   </form>
                 </div>  
                 <div class="col-lg-3"> </div>
               </div>   
               <div class="col-lg-12 text-center social-enter">
 					<h3> {{ 'field_orsigupwith' | translate }}   </h3>
-					<a href="javascript:void(0)"><i class="fab fa-facebook-square"></i></a>
-					<a href="javascript:void(0)"><i class="fab fa-twitter-square"></i></a>
+					<a href="javascript:void(0)" ng-click="authenticate('facebook')" ><i class="fab fa-facebook-square"></i></a>
+					<a href="javascript:void(0)" ng-click="authenticate('twitter')"  ><i class="fab fa-twitter-square"></i></a>
 			  </div>
             </div>   
         </div>
