@@ -1,10 +1,8 @@
 'use strict';
 app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $localStorage ) {
-
-
-
     $scope.user = null;
     $scope.pass = null;
+    $scope.pb_login=false;
     $scope.deserr = "";
     $scope.loginFailed=false;
     $scope.loginServerErrors = {
@@ -15,6 +13,7 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $l
 
     $scope.login = function() {
         if ($scope.loginForm.$valid) {
+            $scope.pb_login=true;
             var user = {
                 email: $scope.user,
                 password: $scope.pass
@@ -24,15 +23,20 @@ app.controller('LoginCtrl', function($scope,$rootScope,$location, $q , $auth, $l
                     $auth.setToken(d.data.data.token);
                     $localStorage.user =  d.data.data.user;
                     $rootScope.getUserinfo();
-                    //$location.path('/');  
-                   // $rootScope.showWallet(); 
-                   $rootScope.actual_view="views/events.html";
-                   $rootScope.getListGames(1);
+                    $rootScope.actual_view="views/events.html";
+                    $rootScope.getListGames(1);
+                    $rootScope.getInitvals();
+                }else{
+                    $scope.loginFailed=true;
+                    $scope.deserr = d.data.message; 
                 }
+                $scope.pb_login=false;
             }).catch(function(err) {
                 $scope.loginFailed=true;
                 $scope.deserr = err.data.message;
+                $scope.pb_login=false;
             });
+
         }
     };
 

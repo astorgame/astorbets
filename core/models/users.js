@@ -7,12 +7,15 @@ appModels.factory('UsersService', function($http, CONFIG) {
                   params: query_
                };
              return $http.get(urlx + entidad , config_ );
-        },*/
+        },
         getUser: function(query_) {
             return $http.get(urlx + entidad+ '/' + query_ );
-        },
+        },*/
         store: function(query_) {
             return $http.post(urlx + 'signup', query_);
+        },
+        lost: function(query_) {
+            return $http.post(urlx +'forgotpss', query_);
         },
         update: function(query_) {
             return $http.patch(urlx + entidad, query_);

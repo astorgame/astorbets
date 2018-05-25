@@ -1,0 +1,53 @@
+<header class="clearfix"   >
+    <span class="mal-4x font-1x text-uppercase" ng-bind-html="item_selected.matchdetails[0].team.description" ></span>  vs <span class="text-uppercase font-1x" ng-bind-html="item_selected.matchdetails[1].team.description" ></span>
+    <a ng-click="getGame(record_selected,1)"  href="javascript:void(0)" class="back mar-2x tit-events link_cab"  ng-bind-html="tit_filter_sel" > </a>
+</header>
+<div class="sub-header">
+    <div class="matchdetails_panel matchdetails_panel_bk"  >
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <span class="mal-4x font-2x text-uppercase" ng-bind-html="item_selected.matchdetails[0].team.description" ></span> <span class="font-2x"> vs </span><span class="text-uppercase font-2x" ng-bind-html="item_selected.matchdetails[1].team.description" ></span>
+            </div>  
+        </div>
+        <div class="match-info">
+            <h3 class="text-capitalize" ng-bind='record_selected.description +", "+item_selected_comp +", "+item_selected_jorn'  > </h3>
+            <h4 ng-bind-html='("tit_fin_apuestas" | translate )+" "+ ( item_selected.start | amUtc | amLocal | amDateFormat:"DD-MM-YYYY, HH:mm" ) '  ></h4>
+        </div>
+    </div>       
+</div>
+<div class=""  >
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_1' | translate" > </h2>	
+        <div class="row">
+            <div class="col-lg-2 col-md-2 content-title-jornada cell"><span class="text-left text-capitalize" ng-bind-html="item_selected.matchdetails[0].team.description" ></span></div><div class="col-lg-2 col-md-2"><span class="text-right" ng-bind="item_selected.one"   ></span></div> 
+            <div class="col-lg-2 col-md-2 content-title-jornada cell"><span class="text-left">Draw</span></div> <div class="col-lg-2 col-md-2"><span class="text-right" ng-bind="item_selected.draw"  ></span></div> 
+            <div class="col-lg-2 col-md-2 content-title-jornada cell"><span class="text-left text-capitalize" ng-bind-html="item_selected.matchdetails[1].team.description" ></span></div><div class="col-lg-2 col-md-2"> <span class="text-right" ng-bind="item_selected.two"   ></span> </div> 
+        </div>   
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_2' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_3' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_4' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_5' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_6' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_7' | translate" > </h2>	
+   </div>
+   <div class="content-main area">
+        <h2 class="area-titulo text-left" ng-bind="'tit_det_8' | translate" > </h2>	
+   </div>
+</div>
+
+
+<div layout="row" layout-sm="column" layout-align="space-around" ng-if="pb_events" >
+    <md-progress-circular md-mode="indeterminate"   ></md-progress-circular>
+</div>	
