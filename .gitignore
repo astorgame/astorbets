@@ -5,5 +5,9 @@ core/constants.js
 /bk
 /astorbets
 /admin
+/devadmin
+/publicfiles
+/devbk
+.htaccess
 
 
